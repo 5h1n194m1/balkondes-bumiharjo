@@ -1,0 +1,1262 @@
+============================================================
+SPESIFIKASI TEKNIS DEVELOPER
+PROYEK WEBSITE BALKONDES BUMIHARJO
+STACK: CODEIGNITER 4 TERBARU + LARAGON + WINDOWS + VS CODE
+STATUS: DOKUMEN ACUAN TEKNIS PRA-EKSEKUSI
+============================================================
+
+1. TUJUAN DOKUMEN
+------------------------------------------------------------
+Dokumen ini dibuat sebagai backup teknis lengkap dari seluruh hasil diskusi requirement proyek website Balkondes Bumiharjo.
+
+Fungsi dokumen:
+- menjadi acuan teknis developer saat mulai build
+- menjadi backup jika chat hilang
+- menghindari pengulangan discovery dari awal
+- menjaga agar keputusan arsitektur, UX, admin flow, dan batas scope tetap konsisten
+
+Dokumen ini melengkapi backup requirement utama dan berfokus pada:
+- arsitektur website
+- arsitektur admin
+- struktur modul
+- rancangan data
+- alur kerja konten
+- strategi animasi
+- strategi media
+- strategi preview/versioning
+- pertimbangan hosting dan performa
+
+============================================================
+2. RINGKASAN TEKNIS SINGKAT
+------------------------------------------------------------
+Proyek:
+- website one-page Balkondes Bumiharjo
+- dibangun dengan CodeIgniter 4 terbaru
+- development di Windows menggunakan Laragon dan VS Code
+- hosting rencana di Rumahweb
+
+Fokus website:
+- promosi wisata
+- branding tempat
+- booking / pengalihan ke channel reservasi
+
+Ciri utama:
+- visual mengikuti referensi
+- nuansa profesional, mewah, elegan, hangat ala desa wisata
+- admin semi-flexible, bukan page builder bebas
+- media library terpusat
+- CTA utama ke WhatsApp dan mini-linktree internal
+- layanan berupa card + popup
+- galeri berupa grid + lightbox
+- hero dengan parallax ringan
+- preview full page
+- draft / save / publish / restore snapshot
+
+============================================================
+3. SCOPE FINAL PROYEK
+------------------------------------------------------------
+INCLUDED:
+- one-page public website
+- admin panel
+- homepage composer semi-flexible
+- media library
+- global settings
+- SEO sederhana
+- GA4 settings
+- custom script settings
+- hero management
+- about section
+- video highlight section
+- services management
+- gallery management
+- mini-linktree / booking links management
+- footer management
+- preview full page
+- versioning/snapshot homepage
+- fallback/default favicon
+- basic admin auth
+
+EXCLUDED / BELUM DIPRIORITASKAN:
+- form kontak website
+- inbox pesan dari form
+- halaman detail layanan
+- halaman detail galeri
+- blog/artikel
+- multi role admin
+- audit log
+- page builder full custom
+- animasi berat di semua section
+- booking engine internal
+- payment gateway
+- multi language
+- multi cabang
+- advanced analytics dashboard internal
+
+============================================================
+4. ARSITEKTUR WEBSITE PUBLIK
+------------------------------------------------------------
+Tipe website:
+- One-page landing page
+
+Struktur final halaman publik:
+1. Navbar
+2. Hero
+3. Tentang
+4. Video Highlight
+5. Services / Fasilitas / Use Case Venue
+6. Gallery
+7. Lokasi / kontak singkat
+8. Footer
+
+Karakter frontend:
+- clean
+- premium
+- elegant
+- visual-heavy but optimized
+- responsive
+- conversion-oriented
+- low-spec friendly
+
+Prinsip desain:
+- mengikuti referensi
+- improvable secara profesional
+- tidak keluar dari arah visual referensi
+- menjaga keseimbangan visual dan performa
+
+============================================================
+5. ARSITEKTUR CTA DAN FLOW KONVERSI
+------------------------------------------------------------
+Tujuan konversi utama:
+- klik WhatsApp
+- klik booking / OTA
+- klik Instagram
+- klik Google Maps
+- eksplorasi galeri
+- eksplorasi informasi tempat
+
+Flow CTA utama:
+A. CTA WhatsApp / Reservasi / Hubungi Kami
+-> direct ke WhatsApp
+-> menggunakan template chat otomatis
+
+B. CTA Booking Stay / OTA
+-> menuju mini-linktree internal
+-> di sana user memilih channel booking resmi
+
+C. CTA social/maps/link lain
+-> direct link atau mini-linktree sesuai konteks
+
+Mini-linktree internal berfungsi sebagai:
+- halaman penghubung resmi
+- pusat link penting
+- alternatif pengganti linktree pihak ketiga
+- area pengelompokan OTA dan channel resmi
+
+Isi default mini-linktree:
+- WhatsApp (global reservasi)
+- Instagram
+- Google Maps
+- Website Booking / OTA
+
+Daftar OTA awal:
+- Agoda
+- Tiket.com
+- Traveloka
+- Booking.com
+- Hotels.com
+
+============================================================
+6. ARSITEKTUR HERO
+------------------------------------------------------------
+Hero type:
+- single hero
+- no slider
+- no video background
+
+Elemen hero:
+- background image
+- overlay / gradient
+- title
+- subtitle
+- CTA buttons
+- optional subtle visual accent
+- parallax ringan
+
+Tujuan hero:
+- menjadi strong first impression
+- membentuk identitas premium
+- menonjolkan penginapan + venue acara + destinasi
+- tetap ringan
+
+Kontrol hero di admin:
+- title
+- subtitle
+- background image selector
+- overlay level
+- CTA primary
+- CTA secondary (optional jika dipakai)
+- hero visibility
+- parallax enable/disable
+- parallax intensity sederhana
+- preview
+
+Catatan teknis:
+- jangan membangun sistem hero yang terlalu bebas
+- hero harus konsisten secara visual
+- layout hero dikunci, hanya konten dan beberapa properti yang bisa diubah
+
+============================================================
+7. ARSITEKTUR ABOUT SECTION
+------------------------------------------------------------
+Type:
+- single section, not repeatable
+
+Elemen about:
+- heading
+- body text
+- optional short highlight points
+- optional supporting image(s) jika dibutuhkan desain
+- optional small label/subtitle
+
+Tujuan:
+- menjelaskan identitas Balkondes Bumiharjo
+- memperluas positioning:
+  - penginapan
+  - venue acara
+  - desa wisata
+  - budaya/adat
+  - gathering
+  - meeting
+  - wedding
+  - dll
+
+Kontrol admin:
+- judul
+- subjudul (optional)
+- isi deskripsi
+- poin keunggulan (optional)
+- gambar pendukung (jika desain memerlukan)
+- visibility
+- section title override dari composer
+
+============================================================
+8. ARSITEKTUR VIDEO HIGHLIGHT
+------------------------------------------------------------
+Type:
+- single active video
+
+Source:
+- upload file video sendiri
+- video dipilih dari media library
+
+Perilaku:
+- jika video belum ada, section bisa dinonaktifkan
+- section tidak memaksa tampil placeholder yang mengganggu
+- bisa diberi caption/judul singkat
+
+Kontrol admin:
+- pilih video aktif
+- judul/caption
+- thumbnail optional
+- visibility
+- urutan section via composer
+
+Catatan teknis:
+- harus mempertimbangkan limit hosting
+- jangan memaksa implementasi file video besar tanpa optimasi
+- struktur harus siap jika kelak strategi penyimpanan video berubah
+
+============================================================
+9. ARSITEKTUR SERVICES
+------------------------------------------------------------
+Type:
+- repeatable items
+- homepage cards
+- modal/popup detail
+- no separate detail page
+
+Tujuan:
+- menampilkan use case utama tempat
+- mempromosikan penginapan dan venue acara
+- tetap fleksibel untuk kebutuhan lain
+
+Data minimum per service:
+- title
+- short description
+- cover image
+- longer description for popup
+- highlight points
+- CTA label
+- CTA target type
+- CTA URL / WA behavior
+- sort order
+- visibility
+- featured flag optional
+
+Popup behavior:
+- tampil modal
+- 1 image
+- longer copy
+- highlight points
+- CTA(s)
+- close button
+- smooth transition
+
+Kontrol admin:
+- create/edit/delete item
+- drag and drop
+- sort order manual
+- active/inactive
+- set item count on homepage
+- edit popup content
+- choose image from media library
+
+Catatan teknis:
+- service categories tidak perlu dikunci keras di fase awal
+- lebih baik dibuat fleksibel melalui field title/content
+- desain popup harus konsisten dan tidak terlalu kompleks
+
+============================================================
+10. ARSITEKTUR GALLERY
+------------------------------------------------------------
+Type:
+- repeatable image items
+- homepage grid
+- lightbox on click
+
+Display behavior:
+- homepage menampilkan 6 item awal
+- klik item membuka lightbox
+- item lain tetap bisa tersedia dalam lightbox/source sesuai implementasi
+
+Data minimum per gallery item:
+- media_id
+- title (optional)
+- caption (optional)
+- alt_text
+- sort_order
+- visibility
+- featured flag optional
+
+Kontrol admin:
+- create/edit/delete item
+- drag and drop
+- sort order manual
+- set visible count
+- active/inactive
+- select image from media library
+
+Catatan teknis:
+- jangan berlebihan dalam efek galeri
+- fokus pada tampilan rapi, cepat, dan smooth
+- lightbox harus ringan dan mobile-friendly
+
+============================================================
+11. ARSITEKTUR FOOTER
+------------------------------------------------------------
+Type:
+- managed by dedicated menu
+- multi-column structure
+- editable quick links
+- premium visual support allowed
+
+Fungsi footer:
+- info ringkas
+- kontak
+- alamat
+- quick links
+- social links
+- maps link
+- copyright
+- area closing / professional info block
+
+Footer blocks yang bisa dipertimbangkan:
+- brand text / nama tempat
+- deskripsi singkat
+- contact info
+- quick links
+- social links
+- maps/booking links
+- copyright note
+
+Kontrol admin:
+- edit blok konten
+- edit quick links
+- edit label link
+- edit urutan item
+- active/inactive blocks
+- background style minimal
+- footer text custom
+
+Catatan teknis:
+- footer harus cukup fleksibel, tapi tetap memakai struktur multi kolom aman
+- tidak dibuat bebas seperti page builder
+
+============================================================
+12. ARSITEKTUR HOMEPAGE COMPOSER
+------------------------------------------------------------
+Ini adalah pusat kontrol homepage.
+
+Fungsi utama:
+- menampilkan daftar section homepage
+- drag and drop urutan section
+- toggle aktif/nonaktif section
+- edit heading/subheading per section
+- atur jumlah item tampil
+- shortcut ke editor section terkait
+
+Section yang umumnya dikontrol composer:
+- Hero
+- About
+- Video Highlight
+- Services
+- Gallery
+- Location / Contact short block
+- Footer quick controls jika relevan
+
+Batas composer:
+- Hero tetap pertama
+- Footer tetap terakhir
+- struktur layout inti tidak boleh diacak liar
+- item-item di dalam section boleh fleksibel
+- composer bersifat semi-flexible, bukan full page builder
+
+Manfaat:
+- operator non-teknis tetap mudah mengelola
+- konsistensi desain tetap aman
+- perubahan konten lebih cepat
+
+============================================================
+13. ARSITEKTUR ADMIN PANEL
+------------------------------------------------------------
+Admin model:
+- single superadmin
+- visual-first
+- easy-to-use
+- no multi-role for v1
+
+Menu admin yang direkomendasikan:
+1. Dashboard
+2. Homepage Composer
+3. Hero
+4. About
+5. Video Highlight
+6. Services
+7. Gallery
+8. Booking Links
+9. Footer
+10. Media Library
+11. Global Settings
+12. Versions / Snapshots
+13. Admin Account
+
+Karakter UI admin:
+- card-based where useful
+- thumbnail preview
+- clear action buttons
+- minimal learning curve
+- aman untuk user non-teknis
+
+============================================================
+14. MODUL ADMIN DETAIL
+------------------------------------------------------------
+14.1 Dashboard
+Tujuan:
+- memberi ringkasan cepat
+Isi awal yang direkomendasikan:
+- total services
+- total gallery items
+- total media
+- status homepage draft/published
+- last published version
+- quick shortcut ke composer dan preview
+
+14.2 Hero Manager
+- edit hero content
+- pilih background image
+- atur overlay
+- toggle parallax
+- preview hero
+
+14.3 About Manager
+- edit judul
+- edit isi deskripsi
+- edit poin keunggulan jika dipakai
+- visibility
+
+14.4 Video Highlight Manager
+- pilih video aktif
+- judul/caption
+- visibility
+
+14.5 Services Manager
+- daftar services
+- CRUD service
+- urutkan
+- pilih image
+- isi popup
+- CTA behavior
+
+14.6 Gallery Manager
+- daftar item
+- CRUD gallery item
+- sort
+- pilih media
+- visibility
+
+14.7 Booking Links Manager
+- atur link mini-linktree
+- WhatsApp utama
+- Instagram
+- Google Maps
+- daftar OTA
+- label dan urutan
+
+14.8 Footer Manager
+- edit blok footer
+- quick links
+- contact info
+- social info
+- appearance ringan
+
+14.9 Media Library
+- upload media
+- metadata
+- search/filter
+- fallback media
+- proteksi delete
+
+14.10 Global Settings
+- nama website
+- brand text
+- kontak utama
+- WhatsApp default
+- Instagram
+- Maps
+- favicon
+- SEO homepage
+- GA4 / custom scripts
+- default CTA labels যদি diperlukan
+
+14.11 Versions / Snapshots
+- list version
+- preview version
+- restore version
+- publish selected version
+
+14.12 Admin Account
+- username/email login preferences
+- update password
+- basic account settings
+
+============================================================
+15. STRATEGI MEDIA LIBRARY
+------------------------------------------------------------
+Media library adalah single source of truth untuk aset.
+
+Jenis media:
+- image
+- video
+- favicon
+- dokumen/pdf
+
+Field metadata media yang direkomendasikan:
+- id
+- file_name
+- original_name
+- mime_type
+- file_size
+- storage_path
+- media_type
+- title
+- alt_text
+- caption
+- category
+- tags
+- is_active
+- created_at
+- updated_at
+
+Fitur penting:
+- multi-upload
+- thumbnail preview
+- search
+- filter by type
+- safe delete prevention
+- default fallback asset
+
+Kebijakan delete:
+- media yang sedang dipakai section lain tidak boleh dihapus langsung
+- paling aman: soft validation sebelum delete
+
+Kebijakan optimasi:
+- image optimization sangat direkomendasikan
+- jika memungkinkan:
+  - buat versi web-optimized
+  - pertimbangkan WebP
+  - lazy loading on frontend
+- tetapi implementasi final menyesuaikan kesiapan pipeline
+
+Catatan:
+- user belum ingin ukuran media dipatok keras
+- maka pendekatannya:
+  - beri rekomendasi
+  - optimasi otomatis bila memungkinkan
+  - hindari aturan yang terlalu kaku di tahap awal
+
+============================================================
+16. STRATEGI VERSIONING DAN PUBLISHING
+------------------------------------------------------------
+Tujuan:
+- aman saat edit
+- mudah rollback
+- mudah preview
+- mengurangi risiko kehilangan perubahan
+
+State yang direkomendasikan:
+- draft
+- saved
+- previewable
+- published
+- archived snapshot (optional internal concept)
+
+Workflow:
+1. Admin edit draft
+2. Admin save draft
+3. Admin preview full page
+4. Admin publish
+5. Sistem membuat snapshot homepage
+6. Admin bisa lihat riwayat versi
+7. Admin bisa restore/publish ulang versi lama
+
+Pendekatan teknis terbaik:
+- konten aktif tetap disimpan di tabel normal
+- saat publish, sistem membuat snapshot homepage lengkap (disarankan format JSON)
+- snapshot menyimpan state final seluruh homepage
+
+Isi snapshot ideal:
+- version_number
+- title/label optional
+- full homepage config JSON
+- published_by
+- published_at
+- notes optional
+
+Keuntungan snapshot total homepage:
+- restore cepat
+- aman
+- cocok untuk one-page semi-flexible
+- lebih mudah dibanding versioning granular semua tabel secara kompleks
+
+Autosave:
+- boleh disiapkan untuk draft editing
+- cukup sederhana di fase awal
+
+============================================================
+17. STRATEGI SEO DAN ANALYTICS
+------------------------------------------------------------
+SEO untuk v1 dibuat sederhana.
+
+Field SEO homepage yang direkomendasikan:
+- meta_title
+- meta_description
+- og_image_media_id
+
+Bisa ditambah nanti:
+- og_title
+- og_description
+- canonical_url
+
+Tapi untuk v1 cukup:
+- Meta Title
+- Meta Description
+- OG Image
+
+Analytics:
+- GA4 wajib disiapkan
+- script GA4 bisa dimasukkan dari admin settings
+
+Custom Scripts:
+- field untuk head scripts
+- field untuk body-end scripts
+- berguna untuk:
+  - GA4
+  - pixels
+  - custom widgets
+  - verification codes
+
+============================================================
+18. STRATEGI ANIMASI DAN PARALLAX
+------------------------------------------------------------
+Prinsip:
+- elegant motion
+- subtle but noticeable
+- premium feel
+- performance-safe
+- no heavy over-animation
+
+Distribusi animasi:
+A. Hero
+- parallax utama
+- overlay/gradient movement ringan
+- subtle depth
+- clean reveal for text
+
+B. About
+- reveal on scroll
+- optional light depth effect
+
+C. Video Highlight
+- fade/slide reveal ringan
+
+D. Services
+- reveal on scroll
+- hover effect ringan
+- modal transition smooth
+
+E. Gallery
+- stagger reveal
+- hover ringan
+- smooth lightbox
+- no heavy parallax
+
+F. Footer / Location
+- minimal motion only
+
+Batas aman:
+- maksimal 1 parallax utama
+- maksimal 2–3 section dengan premium scroll effect ringan
+- sisanya animasi biasa
+
+Fallback low-spec:
+- reduce motion on low-performance devices
+- simplify on mobile
+- respect prefers-reduced-motion
+- disable heavy effects if necessary
+
+Kontrol animasi di admin:
+- jangan terlalu granular
+- cukup:
+  - enable/disable parallax hero
+  - intensity ringan/sedang
+  - overlay level terang/sedang/gelap
+  - section animation on/off where relevant
+
+============================================================
+19. STRATEGI PERFORMA
+------------------------------------------------------------
+Target:
+- tetap premium
+- tetap cepat
+- tetap aman di device low-spec
+
+Prinsip performa:
+- hindari animasi kompleks berlapis-lapis
+- optimasi image
+- lazy load bila perlu
+- minimize large background overhead
+- gunakan motion yang efisien
+- utamakan mobile usability
+
+Kompromi yang diterima:
+- beberapa efek boleh desktop-only
+- mobile boleh dapat versi efek yang lebih sederhana
+- visual tetap hidup walau efek dikurangi
+- performa dan visual harus seimbang
+
+Video:
+- harus diperhatikan khusus karena hosting kemungkinan shared
+- limit final bisa diputuskan belakangan
+- sistem harus fleksibel menghadapi keputusan itu
+
+============================================================
+20. RANCANGAN STRUKTUR DATA / TABEL TINGKAT TINGGI
+------------------------------------------------------------
+Catatan:
+Nama tabel di bawah ini adalah rancangan tingkat tinggi, masih bisa disesuaikan saat implementasi, tetapi ini struktur yang paling logis berdasarkan requirement saat ini.
+
+Tabel yang direkomendasikan:
+
+1. admin_users
+Kolom inti:
+- id
+- username
+- email
+- password_hash
+- is_active
+- last_login_at optional
+- created_at
+- updated_at
+
+2. global_settings
+Kolom inti:
+- id
+- site_name
+- site_tagline optional
+- brand_text
+- primary_whatsapp
+- instagram_url
+- maps_url
+- favicon_media_id nullable
+- meta_title
+- meta_description
+- og_image_media_id nullable
+- ga4_code nullable
+- custom_head_scripts nullable
+- custom_body_scripts nullable
+- created_at
+- updated_at
+
+3. homepage_sections
+Kolom inti:
+- id
+- section_key
+- section_name
+- custom_title nullable
+- custom_subtitle nullable
+- sort_order
+- is_active
+- items_limit nullable
+- settings_json nullable
+- created_at
+- updated_at
+
+4. hero_configs
+Kolom inti:
+- id
+- title
+- subtitle
+- background_media_id
+- overlay_level
+- parallax_enabled
+- parallax_intensity
+- primary_cta_label
+- primary_cta_type
+- primary_cta_target
+- secondary_cta_label nullable
+- secondary_cta_type nullable
+- secondary_cta_target nullable
+- is_active
+- created_at
+- updated_at
+
+5. about_sections
+Kolom inti:
+- id
+- title
+- subtitle nullable
+- body_text
+- highlights_json nullable
+- image_media_id nullable
+- is_active
+- created_at
+- updated_at
+
+6. video_highlights
+Kolom inti:
+- id
+- title nullable
+- caption nullable
+- video_media_id
+- thumbnail_media_id nullable
+- is_active
+- created_at
+- updated_at
+
+7. services
+Kolom inti:
+- id
+- title
+- short_description
+- popup_description
+- popup_points_json nullable
+- image_media_id
+- cta_label nullable
+- cta_type nullable
+- cta_target nullable
+- sort_order
+- is_active
+- created_at
+- updated_at
+
+8. gallery_items
+Kolom inti:
+- id
+- media_id
+- title nullable
+- caption nullable
+- alt_text nullable
+- sort_order
+- is_active
+- created_at
+- updated_at
+
+9. booking_links
+Kolom inti:
+- id
+- group_key optional
+- title
+- link_type
+- url
+- whatsapp_template nullable
+- icon_key nullable
+- sort_order
+- is_active
+- created_at
+- updated_at
+
+10. footer_configs
+Kolom inti:
+- id
+- footer_description nullable
+- footer_background_style nullable
+- settings_json nullable
+- created_at
+- updated_at
+
+11. footer_links
+Kolom inti:
+- id
+- group_name
+- label
+- url
+- link_type nullable
+- sort_order
+- is_active
+- created_at
+- updated_at
+
+12. media_library
+Kolom inti:
+- id
+- file_name
+- original_name
+- mime_type
+- media_type
+- file_size
+- storage_path
+- title nullable
+- alt_text nullable
+- caption nullable
+- category nullable
+- tags nullable
+- is_active
+- created_at
+- updated_at
+
+13. homepage_snapshots
+Kolom inti:
+- id
+- version_number
+- snapshot_label nullable
+- snapshot_json
+- published_by
+- published_at
+- created_at
+- updated_at
+
+14. social_links (optional jika tidak digabung ke booking_links/global_settings)
+Kolom inti:
+- id
+- platform
+- label
+- url
+- sort_order
+- is_active
+- created_at
+- updated_at
+
+15. system_options optional
+Untuk opsi internal kecil jika diperlukan
+
+============================================================
+21. RANCANGAN TYPE CTA
+------------------------------------------------------------
+Untuk menjaga konsistensi, CTA sebaiknya memakai enum atau value tetap.
+
+Contoh CTA types:
+- whatsapp
+- internal_page
+- external_link
+- booking_hub
+- modal
+- none
+
+Untuk services dan hero, target dapat dipetakan sesuai type.
+
+Contoh:
+- whatsapp -> gunakan nomor + template
+- booking_hub -> menuju mini-linktree internal
+- external_link -> URL eksternal
+- internal_page -> anchor section atau route internal
+
+============================================================
+22. RANCANGAN ROUTING TINGKAT TINGGI
+------------------------------------------------------------
+Public routes:
+- /
+- /booking atau /links atau /reservasi (diputuskan nanti, disarankan satu route khusus mini-linktree)
+- fallback routes bila perlu
+
+Admin routes (contoh konsep):
+- /admin/login
+- /admin/dashboard
+- /admin/homepage-composer
+- /admin/hero
+- /admin/about
+- /admin/video-highlight
+- /admin/services
+- /admin/gallery
+- /admin/booking-links
+- /admin/footer
+- /admin/media-library
+- /admin/settings
+- /admin/versions
+- /admin/account
+
+Catatan:
+- route final bisa disesuaikan
+- penting menjaga struktur rapi dan mudah dipahami
+
+============================================================
+23. RANCANGAN STRUKTUR FOLDER CI4 TINGKAT TINGGI
+------------------------------------------------------------
+Tujuan:
+- rapi
+- scalable
+- mudah dipelihara
+- tetap realistis untuk project CI4 di Laragon
+
+Saran struktur logis:
+- app/Controllers/Public
+- app/Controllers/Admin
+- app/Models
+- app/Views/public
+- app/Views/admin
+- app/Views/components
+- app/Config
+- public/assets
+- writable/uploads
+- writable/cache
+- writable/logs
+
+Bila ingin lebih rapi:
+- kelompokkan admin views per modul
+- kelompokkan public section partials
+- simpan reusable components terpisah
+
+Catatan:
+- implementasi folder final bisa mengikuti gaya CI4 yang paling nyaman, tapi modularity ringan sangat disarankan
+
+============================================================
+24. RANCANGAN SISTEM AUTH ADMIN
+------------------------------------------------------------
+Auth v1 cukup sederhana tapi aman.
+
+Kebutuhan:
+- login via email atau username
+- password hash aman
+- change password
+- session-based auth
+- logout
+- basic auth guard untuk route admin
+
+Tidak wajib untuk v1:
+- forgot password
+- 2FA
+- login activity log
+- IP whitelist
+
+Catatan:
+- walau sederhana, implementasi auth jangan dibuat asal
+- tetap pakai best practice CI4 yang aman
+
+============================================================
+25. RANCANGAN PENGALAMAN EDITORIAL DI ADMIN
+------------------------------------------------------------
+Karena user utama bukan orang teknis, pengalaman admin harus:
+- jelas
+- visual
+- minim kebingungan
+- banyak preview
+- tindakan utama mudah ditemukan
+
+Prinsip UI admin:
+- gunakan card/list yang jelas
+- tombol aksi utama konsisten
+- drag and drop hanya di tempat yang masuk akal
+- field tidak terlalu teknis
+- istilah gunakan bahasa yang mudah dipahami
+- tampilkan preview media sebanyak mungkin
+
+Field-field yang terlalu teknis sebaiknya:
+- disederhanakan
+- diberi label yang mudah
+- jika perlu diberi help text
+
+============================================================
+26. STRATEGI COPYWRITING AWAL
+------------------------------------------------------------
+Developer/assistant boleh menyiapkan draft awal untuk:
+- hero title
+- hero subtitle
+- about text
+- service descriptions
+- CTA labels
+- footer descriptive text
+- SEO meta title/description
+
+Arah tone:
+- mengikuti referensi
+- premium
+- hangat
+- profesional
+- luas secara positioning
+
+Karena teks bisa diedit kapan saja dari admin:
+- tidak perlu terlalu takut membuat draft awal
+- yang penting struktur sistem mendukung edit fleksibel
+
+============================================================
+27. STRATEGI KOMPATIBILITAS HOSTING RUMAHWEB
+------------------------------------------------------------
+Karena paket hosting belum pasti:
+- hindari desain backend yang terlalu berat
+- optimasi media jadi penting
+- video perlu perhatian khusus
+- jangan mengandalkan resource server tinggi
+
+Yang harus dijaga:
+- upload workflow efisien
+- query tidak boros
+- aset frontend teroptimasi
+- animasi tidak berat
+- fallback aman jika shared hosting
+
+Arsitektur sebaiknya:
+- tetap mudah dipindahkan ke environment yang lebih tinggi di masa depan
+- tidak terlalu mengikat ke solusi yang sulit dipindah
+
+============================================================
+28. RISIKO PROYEK YANG SUDAH TERIDENTIFIKASI
+------------------------------------------------------------
+1. Scope creep dari semi-flexible menjadi full custom builder
+Mitigasi:
+- kunci batas composer dari awal
+
+2. Video terlalu besar untuk hosting
+Mitigasi:
+- struktur fleksibel
+- putuskan limit nanti
+- optimasi dan fallback
+
+3. Terlalu banyak animasi
+Mitigasi:
+- maksimal 1 parallax utama
+- section lain ringan
+
+4. Operator bingung dengan admin
+Mitigasi:
+- UI admin visual
+- kontrol sederhana
+- terminology mudah
+
+5. Media berantakan
+Mitigasi:
+- media library terpusat
+- metadata
+- safe delete
+
+6. Perubahan homepage berisiko merusak live site
+Mitigasi:
+- draft
+- preview
+- snapshot
+- restore
+
+============================================================
+29. REKOMENDASI URUTAN IMPLEMENTASI
+------------------------------------------------------------
+Urutan implementasi yang paling aman:
+
+Tahap 1:
+- setup project CI4
+- setup auth admin dasar
+- setup layout public dan layout admin
+- setup global settings dasar
+
+Tahap 2:
+- bangun homepage public static berdasarkan referensi
+- bangun navbar, hero, about, services, gallery, footer
+- siapkan CTA flow dasar
+
+Tahap 3:
+- bangun media library
+- integrasikan hero/gallery/services dengan media
+
+Tahap 4:
+- bangun Homepage Composer
+- bangun services manager
+- bangun gallery manager
+- bangun footer manager
+- bangun booking links manager
+
+Tahap 5:
+- bangun preview/draft/publish flow
+- bangun homepage snapshots
+
+Tahap 6:
+- implementasikan animasi dan parallax terukur
+- tambahkan low-spec fallback
+- optimasi frontend
+
+Tahap 7:
+- SEO settings
+- GA4/custom scripts
+- favicon handling
+- testing final
+- deployment preparation
+
+============================================================
+30. CHECKLIST FINAL SEBELUM EKSEKUSI CODING
+------------------------------------------------------------
+Sebelum coding penuh dimulai, pastikan:
+- referensi desain utama sudah final
+- aset hero dan galeri minimal tersedia
+- nama route mini-linktree diputuskan (/booking, /links, /reservasi, dll)
+- daftar CTA label utama diputuskan
+- daftar service awal diputuskan
+- daftar link OTA final dipastikan
+- data WhatsApp, Instagram, Maps valid
+- pilihan paket hosting mulai diperkirakan
+- batas awal upload video mulai dipikirkan
+
+Jika beberapa item di atas belum final:
+- tetap bisa mulai coding
+- gunakan placeholder dan struktur fleksibel
+- jangan menunggu semuanya sempurna untuk memulai fondasi
+
+============================================================
+31. RINGKASAN TEKNIS SANGAT SINGKAT
+------------------------------------------------------------
+Bangun website one-page Balkondes Bumiharjo di CI4 terbaru dengan visual mengikuti referensi. Fokus utama adalah branding, promosi, dan booking. Hero tunggal dengan parallax ringan menjadi pusat visual. CTA WhatsApp langsung memakai template chat otomatis, sedangkan booking/OTA memakai mini-linktree internal. Services bersifat dinamis dan dibuka dalam modal popup, bukan halaman detail. Gallery menampilkan 6 item awal dan memakai lightbox. Tidak ada form website. Admin hanya satu superadmin dengan sistem semi-flexible: ada Homepage Composer, Media Library, Services, Gallery, Booking Links, Footer, Global Settings, SEO sederhana, GA4, preview full page, draft/save/publish, snapshot homepage, dan restore versi lama. Semua animasi harus premium namun tetap aman untuk mobile dan low-spec, dengan maksimal satu parallax utama dan fallback otomatis untuk perangkat lemah.
+
+============================================================
+32. STATUS DOKUMEN
+------------------------------------------------------------
+Status:
+- siap dijadikan acuan build
+- belum berupa kode
+- belum berupa SQL final
+- belum berupa blueprint UI detail screen-by-screen
+- tetapi sudah cukup kuat untuk lanjut ke:
+  - blueprint final lebih detail
+  - struktur database final
+  - implementasi CI4
+  - perencanaan task development
+
+Dokumen ini harus disimpan bersama backup requirement utama.
+
+============================================================
+SELESAI
+============================================================

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Balkondes Bumiharjo | Ketenangan Desa &amp; Pesona Budaya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#b88b4a", // Goldenrod accent
+                        "secondary": "#a78a7f", // Desaturated rose
+                        "background-sage": "#f1f5f2", // Gentle sage green
+                        "content-block": "#fffcf7", // Warm cream
+                        "on-background": "#2d2a26",
+                        "accent-soft": "#e8dfd8"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body { 
+                @apply font-body text-on-background bg-background-sage;
+                overflow-x: hidden;
+            }
+            .font-serif { font-family: 'Noto Serif', serif; }
+        }
+        
+        /* Parallax Effects */
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .parallax-layer {
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        .collage-layer-1 { transform: rotate(-2deg) translateX(-10%); }
+        .collage-layer-2 { transform: rotate(3deg) translateY(-5%); }
+        .collage-layer-3 { transform: rotate(-1deg) translateX(10%); }
+        
+        .service-card-overlap:nth-child(even) {
+            margin-top: 4rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .service-card-overlap {
+                margin-right: -1rem;
+            }
+            .service-card-overlap:last-child {
+                margin-right: 0;
+            }
+        }
+        
+        .gallery-staggered .gallery-item:nth-child(even) {
+            margin-top: 3rem;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(.33); }
+            80%, 100% { opacity: 0; }
+        }
+        .play-button-ring {
+            animation: pulse-ring 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+        }
+    </style>
+</head>
+<body class="selection:bg-primary/30">
+<nav class="fixed top-0 w-full z-50 bg-white/60 backdrop-blur-xl border-b border-black/5">
+<div class="flex justify-between items-center w-full px-8 py-5 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-serif font-bold text-primary tracking-tight">Balkondes Bumiharjo</div>
+<div class="hidden md:flex items-center gap-x-10">
+<a class="text-stone-600 font-medium tracking-wide transition-colors hover:text-primary" href="#tentang">Tentang</a>
+<a class="text-stone-600 font-medium tracking-wide transition-colors hover:text-primary" href="#fasilitas">Fasilitas/Layanan</a>
+<a class="text-stone-600 font-medium tracking-wide transition-colors hover:text-primary" href="#gallery">Gallery</a>
+<a class="text-stone-600 font-medium tracking-wide transition-colors hover:text-primary" href="#lokasi">Lokasi</a>
+</div>
+<button class="bg-primary text-white px-7 py-2.5 rounded-full font-semibold hover:bg-secondary transition-all shadow-md active:scale-95">
+            Book Stay
+        </button>
+</div>
+</nav>
+<section class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0 parallax-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCES3vkRw8V9fHynCE0d6JYWGCCY1r8eqTJYBwwaTJX6uZGgNLbMQVL4m3i7mQfCogUbRwwqBWmlT0X-Xt2AYr5v36VhPMeHGcafPDsnFmViHMNSXQhBiWFjGl03hBbMh11pbtbbSmXVO3mwae2VJim3Wk_YLPH_QPeh-PmBhYzb9RWoyW6eeH8ZPWK76FZ2N_uLklSEQU2KFsOm6rJ7WP2890t0nFMiGx2LLkyWcEj5WTxBK42ngY6D59sqNsji9nBpDbUfNOTc2g');">
+<div class="absolute inset-0 bg-black/40 backdrop-grayscale-[0.2]"></div>
+</div>
+<div class="relative z-10 text-center px-6 max-w-4xl parallax-layer" id="hero-content">
+<h1 class="text-6xl md:text-9xl font-serif italic text-white mb-10 leading-none tracking-tight drop-shadow-2xl">
+            Balkondes Bumiharjo
+        </h1>
+<p class="text-white/90 text-xl md:text-2xl font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+            Nikmati hangatnya suasana desa yang tenang dan akrab, dalam pengalaman menginap yang nyaman, menenangkan, dan penuh kesan.
+        </p>
+<div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+<a class="bg-primary text-white px-12 py-4 rounded-full text-lg font-bold shadow-2xl hover:bg-white hover:text-primary transition-all duration-500" href="#">
+                Reservasi Sekarang
+            </a>
+<a class="bg-white/10 backdrop-blur-md text-white border border-white/40 px-12 py-4 rounded-full text-lg font-medium hover:bg-white/20 transition-all duration-500" href="#fasilitas">
+                Jelajahi Fasilitas
+            </a>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+<span class="text-white text-xs tracking-[0.3em] uppercase font-bold">Scroll Down</span>
+<span class="material-symbols-outlined text-white text-3xl animate-bounce">expand_more</span>
+</div>
+</section>
+<section class="py-32 px-8 bg-background-sage relative overflow-hidden" id="tentang">
+<div class="max-w-screen-xl mx-auto relative">
+<div class="absolute inset-0 flex items-center justify-center opacity-40 md:opacity-100 pointer-events-none">
+<div class="relative w-full h-[600px]">
+<img alt="Architecture" class="absolute top-0 left-0 w-1/2 h-[450px] object-cover rounded-3xl shadow-xl collage-layer-1 parallax-layer" data-speed="0.05" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUlGc-wUslx_12SUhPkWLxQGbZj-Pfye4CAVg7Bi54PC27CSbwCnJ1tRcIvjRW-w0Wal6zGH1NmkCgLhAQbwk7vslye8X43JXjoFI0Sy0J11Lib2B740qcOhGvwGDecqzsBjF28Tq9bYwT4Sch1jeTPYi9Eav72J-vTJwd3eJ8DEO1BOqQ7GaQcb2WC5gUQldABkfEPvdiPgSkAH9gnAE4m3AOXmyAHWCN0-048QhDFN9eBevpr7WnYqP5uoEyyFXAxv6jNnnG_Kk"/>
+<img alt="Details" class="absolute top-1/4 right-0 w-1/3 h-[350px] object-cover rounded-3xl shadow-xl collage-layer-2 parallax-layer" data-speed="-0.03" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx9bRliGzyMhKHt1n3Ejn6qfjXerH1gpcBi8qHOs1o11ZDaNy9V3tLmDCC9rhBJ9EVBXeu9pOILfdwvK3vYGpzm-q6veIpZdg-vwuiZeeHaHENqcAfqtOAjBgPP24YsriOwCXPfIBNDrfsIipwBGr_IgoL7xQTIedYhHDfqXDMH4xT0wWLHK0iq8RzowpvYXDsiVNdMy6-acgIDYMCbitENn8KolbKXil0AmJBPb5BCCCvLojOuV3O3NoSrFaPEW_E_dp4M-AcY_w"/>
+<img alt="Culture" class="absolute bottom-0 left-1/4 w-2/5 h-[300px] object-cover rounded-3xl shadow-xl collage-layer-3 parallax-layer" data-speed="0.02" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc0y4nRhai-hLPtXt5dBTuONDtJZDhhz3QKpzlbkcfW9tLUR0yjpg122ytcSaqQUg5xSOdT0sZn1BCzzsVT-9-mBpRS7zxD87TRjPFBnZorbNpKIvzzAj0bnAitq-L_bXF0YAofhLN4m-8uBcGWLlY_uhMcfx7frY8vfScZyjEGwiRdEPVA7k_qbJJcSvjD_VvMJH_yzG4zSyWnX9BaFhRpVuSK019jKKy0_aYKM89BsqxZvQnDdYcD8sx_3m_bI7QIoaHjgbnRIk"/>
+</div>
+</div>
+<div class="relative z-10 flex flex-col items-center justify-center min-h-[600px] text-center max-w-3xl mx-auto px-6">
+<div class="bg-content-block/90 backdrop-blur-md p-10 md:p-16 rounded-[3rem] shadow-2xl border border-white/50">
+<span class="text-primary font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Warisan Budaya</span>
+<h2 class="text-4xl md:text-5xl font-serif text-on-background mb-8 leading-tight">
+                    Lebih Dari Sekadar <span class="italic text-secondary underline decoration-primary/30 decoration-8 underline-offset-4">Tempat Singgah</span>
+</h2>
+<p class="text-lg md:text-xl text-stone-700 leading-relaxed font-light">
+                    Balkondes Bumiharjo adalah tempat singgah yang menghadirkan ketenangan, kenyamanan, dan hangatnya suasana desa di dekat Borobudur. Lebih dari sekadar tempat beristirahat, kami ingin menyambut setiap tamu dengan suasana yang akrab, tenang, dan menenangkan hati. Di tengah perjalanan Anda, Balkondes Bumiharjo hadir sebagai ruang untuk melepas lelah, menikmati kehangatan desa, dan merasakan pengalaman menginap yang sederhana namun penuh kesan.
+                </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Cinematic Video Preview Section -->
+<section class="py-16 px-8 bg-background-sage overflow-hidden">
+<div class="max-w-screen-2xl mx-auto relative group">
+<div class="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white/20">
+<img alt="Video Preview" class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCES3vkRw8V9fHynCE0d6JYWGCCY1r8eqTJYBwwaTJX6uZGgNLbMQVL4m3i7mQfCogUbRwwqBWmlT0X-Xt2AYr5v36VhPMeHGcafPDsnFmViHMNSXQhBiWFjGl03hBbMh11pbtbbSmXVO3mwae2VJim3Wk_YLPH_QPeh-PmBhYzb9RWoyW6eeH8ZPWK76FZ2N_uLklSEQU2KFsOm6rJ7WP2890t0nFMiGx2LLkyWcEj5WTxBK42ngY6D59sqNsji9nBpDbUfNOTc2g"/>
+<div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-32 h-32 bg-white/20 rounded-full play-button-ring"></div>
+<button class="relative z-10 w-24 h-24 bg-white rounded-full flex items-center justify-center text-primary shadow-2xl hover:scale-110 transition-transform active:scale-95 group/play">
+<span class="material-symbols-outlined text-5xl ml-1">play_arrow</span>
+</button>
+</div>
+</div>
+<div class="absolute bottom-12 left-12 right-12 flex justify-between items-end">
+<div class="text-white max-w-lg">
+<p class="text-xs uppercase tracking-[0.4em] font-bold mb-3 opacity-80">Cinematic Experience</p>
+<h3 class="text-3xl md:text-5xl font-serif italic">The Soul of Bumiharjo</h3>
+</div>
+<div class="hidden md:block">
+<span class="text-white/60 text-sm italic font-light">Watch Full Story • 02:45</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-content-block" id="fasilitas">
+<div class="max-w-screen-2xl mx-auto">
+<div class="text-center mb-24 max-w-3xl mx-auto">
+<h2 class="text-4xl md:text-6xl font-serif text-on-background mb-6">Pengalaman Tak Terlupakan</h2>
+<p class="text-stone-500 text-lg md:text-xl">Layanan istimewa yang dirancang untuk membawa Anda lebih dekat dengan jiwa Borobudur.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+<div class="service-card-overlap group relative">
+<div class="aspect-[3/4.5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-1000 group-hover:scale-[1.02]">
+<img alt="Stay" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_HM24JWJaOCcO0Bd1sHhDTSXQAxZGC6B8s6jpSY6Y_7ciyV-NAIRfqfgn6jVKXlsWMSYU6ZNRZxj_hmnviR2svzN6hKZNB5DTEAOXXczDZeE5MPw7NHggHivNfWiSk6d0AO3SLyKcgc5xJ-DM4Vf8d_E94QSpl2s0R2ru48HacvjAWYEvnmr-mN0lFpeTxRdLsS60GpzAz4Xxp1Jaok2Mz0sFXcN36rOeyPND5iHwkfgXrXzYrx7is4HunHC0jUodidTFjjBjYbs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<h3 class="text-xl font-serif text-white mb-3">Penginapan &amp; Homestay</h3>
+<p class="text-white/70 text-sm mb-6 leading-relaxed">Bangun dengan embun pagi dan pemandangan sawah. Kembali ke alam dan rasakan kehangatan rumah.</p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs hover:text-white transition-colors" href="#">
+                            Jelajahi <span class="material-symbols-outlined ml-2 text-base">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<div class="service-card-overlap group relative z-10">
+<div class="aspect-[3/4.5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-1000 group-hover:scale-[1.02]">
+<img alt="Culinary" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAehdKBIRslubjn_M3mk6FaEj0bEroiJqTGkJk1x2cO6pReLTqzaQrnzX9hTBXjpUygbH-2GkjyNSzNizkb5G7BVolxsEayYuqiq9wuee1F854pU4ehTbv6w-w9aHg2aXXB40-b0SiiMEokNocZGeXkzeTv-6tIc4rpCudfBlpLQvTCOHRbtS-34iMDWyokYp4X_cVZVHyx2Az2r9v5wnlcMyZWA9pD3VsQTYTilZgUT-GLSCeV4xRVR43y5nsulaD3qdlDD-fQTF4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<h3 class="text-xl font-serif text-white mb-3">Sajian Kuliner Otentik</h3>
+<p class="text-white/70 text-sm mb-6 leading-relaxed">Cita rasa asli Borobudur yang diolah dari bahan segar langsung dari kebun warga sekitar.</p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs hover:text-white transition-colors" href="#">
+                            Nikmati <span class="material-symbols-outlined ml-2 text-base">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<div class="service-card-overlap group relative">
+<div class="aspect-[3/4.5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-1000 group-hover:scale-[1.02]">
+<img alt="Safari" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk00UdlIL39HGDRuVcqxo7QOeD0mEErKK1C-2Q-mnqw6NQull2vlp2exUQiv3ZTIarQrdEH15AyHNADL2qWJe5yXucFo0qCTtqJF1X581MAUSlLeXvuMtatzlaKnmnHQPA08O---lw9tkd6DZ5bDpslGXTBb4DbwM0Qu__1HqolJIeJFGKetmeYBxN9_lxcDfU_DetpmsX9EurJGKo9pd241aOYP4subbkWe6wKlveeOPyTsE6sfmyOsPCPPXrw4QJWO6X2dBs-D8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<h3 class="text-xl font-serif text-white mb-3">Eksplorasi Mobil VW</h3>
+<p class="text-white/70 text-sm mb-6 leading-relaxed">Rasakan semilir angin di sudut eksotis Borobudur. Trip VW Safari melalui Kampoeng Dolanan.</p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs hover:text-white transition-colors" href="#">
+                            Pesan Trip <span class="material-symbols-outlined ml-2 text-base">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+<div class="service-card-overlap group relative z-10">
+<div class="aspect-[3/4.5] rounded-[3rem] overflow-hidden shadow-2xl transition-transform duration-1000 group-hover:scale-[1.02]">
+<img alt="Venue" class="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUlGc-wUslx_12SUhPkWLxQGbZj-Pfye4CAVg7Bi54PC27CSbwCnJ1tRcIvjRW-w0Wal6zGH1NmkCgLhAQbwk7vslye8X43JXjoFI0Sy0J11Lib2B740qcOhGvwGDecqzsBjF28Tq9bYwT4Sch1jeTPYi9Eav72J-vTJwd3eJ8DEO1BOqQ7GaQcb2WC5gUQldABkfEPvdiPgSkAH9gnAE4m3AOXmyAHWCN0-048QhDFN9eBevpr7WnYqP5uoEyyFXAxv6jNnnG_Kk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 p-8">
+<h3 class="text-xl font-serif text-white mb-3">Venue Acara &amp; MICE</h3>
+<p class="text-white/70 text-sm mb-6 leading-relaxed">Ruang terbuka yang megah untuk pernikahan, reuni, atau meeting dengan suasana pedesaan yang asri.</p>
+<a class="inline-flex items-center text-primary font-bold uppercase tracking-widest text-xs hover:text-white transition-colors" href="#">
+                            Booking Venue <span class="material-symbols-outlined ml-2 text-base">arrow_right_alt</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-background-sage" id="gallery">
+<div class="max-w-screen-2xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl md:text-6xl font-serif text-on-background leading-tight mb-6">Keajaiban di <span class="italic text-primary">Setiap Lensa</span></h2>
+<p class="text-stone-500 text-lg">Sudut keindahan yang tak terlukiskan, menanti untuk Anda jelajahi sendiri dalam keheningan desa.</p>
+</div>
+<button class="border-2 border-primary text-primary px-10 py-3 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-primary hover:text-white transition-all">
+                View Full Gallery
+            </button>
+</div>
+<div class="gallery-staggered grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+<div class="gallery-item overflow-hidden rounded-[3rem] shadow-2xl group relative h-[600px] parallax-layer" data-speed="0.04">
+<img alt="Gallery 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUlGc-wUslx_12SUhPkWLxQGbZj-Pfye4CAVg7Bi54PC27CSbwCnJ1tRcIvjRW-w0Wal6zGH1NmkCgLhAQbwk7vslye8X43JXjoFI0Sy0J11Lib2B740qcOhGvwGDecqzsBjF28Tq9bYwT4Sch1jeTPYi9Eav72J-vTJwd3eJ8DEO1BOqQ7GaQcb2WC5gUQldABkfEPvdiPgSkAH9gnAE4m3AOXmyAHWCN0-048QhDFN9eBevpr7WnYqP5uoEyyFXAxv6jNnnG_Kk"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="gallery-item overflow-hidden rounded-[3rem] shadow-2xl group relative h-[500px] parallax-layer" data-speed="-0.02">
+<img alt="Gallery 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCES3vkRw8V9fHynCE0d6JYWGCCY1r8eqTJYBwwaTJX6uZGgNLbMQVL4m3i7mQfCogUbRwwqBWmlT0X-Xt2AYr5v36VhPMeHGcafPDsnFmViHMNSXQhBiWFjGl03hBbMh11pbtbbSmXVO3mwae2VJim3Wk_YLPH_QPeh-PmBhYzb9RWoyW6eeH8ZPWK76FZ2N_uLklSEQU2KFsOm6rJ7WP2890t0nFMiGx2LLkyWcEj5WTxBK42ngY6D59sqNsji9nBpDbUfNOTc2g"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="gallery-item overflow-hidden rounded-[3rem] shadow-2xl group relative h-[500px] parallax-layer" data-speed="0.03">
+<img alt="Gallery 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc0y4nRhai-hLPtXt5dBTuONDtJZDhhz3QKpzlbkcfW9tLUR0yjpg122ytcSaqQUg5xSOdT0sZn1BCzzsVT-9-mBpRS7zxD87TRjPFBnZorbNpKIvzzAj0bnAitq-L_bXF0YAofhLN4m-8uBcGWLlY_uhMcfx7frY8vfScZyjEGwiRdEPVA7k_qbJJcSvjD_VvMJH_yzG4zSyWnX9BaFhRpVuSK019jKKy0_aYKM89BsqxZvQnDdYcD8sx_3m_bI7QIoaHjgbnRIk"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="gallery-item overflow-hidden rounded-[3rem] shadow-2xl group relative h-[600px] parallax-layer" data-speed="-0.04">
+<img alt="Gallery 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBx9bRliGzyMhKHt1n3Ejn6qfjXerH1gpcBi8qHOs1o11ZDaNy9V3tLmDCC9rhBJ9EVBXeu9pOILfdwvK3vYGpzm-q6veIpZdg-vwuiZeeHaHENqcAfqtOAjBgPP24YsriOwCXPfIBNDrfsIipwBGr_IgoL7xQTIedYhHDfqXDMH4xT0wWLHK0iq8RzowpvYXDsiVNdMy6-acgIDYMCbitENn8KolbKXil0AmJBPb5BCCCvLojOuV3O3NoSrFaPEW_E_dp4M-AcY_w"/>
+<div class="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-accent-soft/30" id="lokasi">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="space-y-10">
+<span class="inline-block px-5 py-2 bg-white text-primary rounded-full text-xs font-bold tracking-widest uppercase shadow-sm">Kunjungi Kami</span>
+<h2 class="text-4xl md:text-6xl font-serif text-on-background">Lokasi <span class="italic text-secondary">Kami</span></h2>
+<div class="space-y-8">
+<div class="flex items-start gap-6 p-6 rounded-3xl bg-white/50 backdrop-blur-sm transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary text-4xl">location_on</span>
+<div>
+<p class="font-bold text-xl text-on-background mb-2">Alamat Utama</p>
+<p class="text-stone-600 text-lg">Bumiharjo, Kawasan Candi Borobudur, Magelang, Jawa Tengah, Indonesia 56553</p>
+</div>
+</div>
+<div class="flex items-start gap-6 p-6 rounded-3xl bg-white/50 backdrop-blur-sm transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary text-4xl">directions_car</span>
+<div>
+<p class="font-bold text-xl text-on-background mb-2">Aksesibilitas</p>
+<p class="text-stone-600 text-lg">Dapat ditempuh dalam 5-10 menit dari pintu masuk utama Candi Borobudur.</p>
+</div>
+</div>
+<div class="flex items-start gap-6 p-6 rounded-3xl bg-white/50 backdrop-blur-sm transition-all hover:shadow-lg">
+<span class="material-symbols-outlined text-primary text-4xl">contact_support</span>
+<div>
+<p class="font-bold text-xl text-on-background mb-2">Hubungi Kami</p>
+<p class="text-stone-600 text-lg">info@balkondesbumiharjo.id<br/>+62 812-3456-7890</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative group">
+<div class="absolute -inset-4 bg-primary/10 rounded-[4rem] blur-2xl group-hover:bg-primary/20 transition-all"></div>
+<div class="relative w-full h-[600px] rounded-[3rem] overflow-hidden shadow-2xl border-[12px] border-white">
+<iframe allowfullscreen="" height="100%" loading="lazy" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15818.571434316654!2d110.1983337951523!3d-7.613333194511019!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a8cf07380901b%3A0x6b7713d789953835!2sCandi%20Borobudur!5e0!3m2!1sid!2sid!4v1715678901234!5m2!1sid!2sid" style="border:0;" width="100%"></iframe>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-on-background text-white rounded-t-[4rem] pt-24 pb-12 px-12 overflow-hidden relative">
+<div class="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2"></div>
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16 relative z-10">
+<div class="space-y-8">
+<div class="font-serif text-3xl font-bold text-primary">Balkondes Bumiharjo</div>
+<p class="text-white/60 font-light leading-relaxed">
+                Mewujudkan impian wisata budaya yang berkelanjutan dan memberdayakan komunitas lokal di sekitar kawasan Borobudur.
+            </p>
+<div class="flex gap-6">
+<a class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">public</span></a>
+<a class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">photo_camera</span></a>
+<a class="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center hover:bg-primary hover:border-primary transition-all" href="#"><span class="material-symbols-outlined text-sm">play_circle</span></a>
+</div>
+</div>
+<div class="space-y-8">
+<h4 class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Menu Cepat</h4>
+<ul class="space-y-5 text-white/70">
+<li><a class="hover:text-primary transition-colors" href="#tentang">Tentang Kami</a></li>
+<li><a class="hover:text-primary transition-colors" href="#fasilitas">Fasilitas &amp; Layanan</a></li>
+<li><a class="hover:text-primary transition-colors" href="#gallery">Galeri Foto</a></li>
+<li><a class="hover:text-primary transition-colors" href="#lokasi">Peta Lokasi</a></li>
+</ul>
+</div>
+<div class="space-y-8">
+<h4 class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Media Sosial</h4>
+<ul class="space-y-5 text-white/70">
+<li><a class="hover:text-primary transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Facebook</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">YouTube</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">WhatsApp Business</a></li>
+</ul>
+</div>
+<div class="space-y-8">
+<h4 class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Kantor Kami</h4>
+<p class="text-white/70 font-light leading-relaxed">
+                Bumiharjo, Borobudur,<br/>
+                Magelang, Jawa Tengah 56553<br/>
+                Indonesia
+            </p>
+<a class="inline-block text-primary font-bold border-b-2 border-primary/30 pb-1 hover:border-primary transition-all" href="mailto:hello@balkondesbumiharjo.id">Hubungi Kami</a>
+</div>
+</div>
+<div class="max-w-screen-2xl mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col md:row justify-between items-center gap-6">
+<p class="text-white/40 text-sm">© 2024 Balkondes Bumiharjo. Seluruh hak cipta dilindungi.</p>
+<div class="flex gap-10 text-white/40 text-sm">
+<a class="hover:text-white transition-colors" href="#">Kebijakan Privasi</a>
+<a class="hover:text-white transition-colors" href="#">Syarat &amp; Ketentuan</a>
+</div>
+</div>
+</footer>
+<script>
+    // Parallax logic
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        
+        // Background parallax handles automatically via CSS background-attachment: fixed
+        
+        // Element parallax
+        const layers = document.querySelectorAll('.parallax-layer');
+        layers.forEach(layer => {
+            const speed = layer.getAttribute('data-speed') || 0.1;
+            const yPos = -(scrolled * speed);
+            layer.style.transform = `translateY(${yPos}px) ${layer.classList.contains('collage-layer-1') ? 'rotate(-2deg)' : ''} ${layer.classList.contains('collage-layer-2') ? 'rotate(3deg)' : ''} ${layer.classList.contains('collage-layer-3') ? 'rotate(-1deg)' : ''}`;
+        });
+        
+        // Hero Content Parallax (Special handling for smooth feel)
+        const heroContent = document.getElementById('hero-content');
+        if(heroContent) {
+            heroContent.style.transform = `translateY(${scrolled * 0.25}px)`;
+            heroContent.style.opacity = 1 - (scrolled / 800);
+        }
+    });
+</script>
+</body></html>

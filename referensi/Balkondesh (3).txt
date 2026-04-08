@@ -1,0 +1,640 @@
+============================================================
+CHECKLIST EKSEKUSI PROYEK
+WEBSITE BALKONDES BUMIHARJO
+STACK: CODEIGNITER 4 TERBARU + LARAGON + WINDOWS + VS CODE
+STATUS: CHECKLIST PRA-EKSEKUSI DAN IMPLEMENTASI
+============================================================
+
+1. TUJUAN DOKUMEN
+------------------------------------------------------------
+Dokumen ini adalah checklist implementasi praktis untuk proyek website Balkondes Bumiharjo.
+
+Fungsi dokumen:
+- menjadi panduan langkah kerja saat mulai build
+- membantu menjaga scope tetap sesuai hasil diskusi
+- memastikan requirement, desain, admin, media, dan performa tidak terlewat
+- dipakai bersama dua dokumen backup lain:
+  1. backup requirement lengkap
+  2. spesifikasi teknis developer
+
+============================================================
+2. RINGKASAN PROYEK
+------------------------------------------------------------
+Project:
+- Website Balkondes Bumiharjo
+
+Tujuan:
+- promosi wisata
+- branding tempat
+- booking / lead ke channel reservasi
+
+Karakter:
+- profesional
+- mewah
+- elegan
+- hangat ala desa wisata
+
+Format:
+- one-page landing page
+
+Teknologi:
+- CodeIgniter 4 terbaru
+- Windows
+- Laragon
+- VS Code
+
+Admin:
+- 1 superadmin
+- semi-flexible
+- visual
+- mudah dipakai operator non-teknis
+
+============================================================
+3. CHECKLIST KEPUTUSAN YANG SUDAH FINAL
+------------------------------------------------------------
+[OK] Website one-page
+[OK] Fokus hanya untuk Balkondes Bumiharjo
+[OK] Tampilan mengikuti referensi
+[OK] Hero tunggal
+[OK] Hero memakai gambar utama + parallax ringan
+[OK] Services tampil di homepage dan dibuka via popup
+[OK] Gallery tampil 6 item awal + lightbox
+[OK] Video hanya 1 aktif
+[OK] Footer dikelola khusus
+[OK] Tidak ada form website
+[OK] CTA WhatsApp langsung ke WA dengan template
+[OK] Booking/OTA ke mini-linktree internal
+[OK] Admin semi-flexible
+[OK] Media library terpusat
+[OK] Preview full page
+[OK] Save + Draft + Preview + Publish
+[OK] Snapshot homepage
+[OK] Restore versi lama
+[OK] Superadmin tunggal
+[OK] SEO sederhana
+[OK] GA4
+[OK] Favicon default disiapkan
+[OK] Custom scripts disiapkan
+[OK] Parallax utama di hero
+[OK] Low-spec fallback wajib aman
+[OK] Visual dan performa harus seimbang
+
+============================================================
+4. CHECKLIST DATA DAN ASET YANG SUDAH TERSEDIA
+------------------------------------------------------------
+[OK] Foto hero ada
+[OK] Foto galeri ada
+[OK] Nomor WhatsApp ada
+[OK] Link Instagram ada
+[OK] Alamat lengkap ada
+[OK] Titik Google Maps ada
+[OK] Link OTA ada:
+     - Agoda
+     - Tiket.com
+     - Traveloka
+     - Booking.com
+     - Hotels.com
+
+[NOT FINAL] Aset masih campur, sebagian sudah final
+[NOT AVAILABLE] Video highlight belum ada
+[NOT AVAILABLE] Logo belum dipakai
+[NOT AVAILABLE] Favicon final belum ada
+
+============================================================
+5. CHECKLIST HAL YANG MASIH BISA DITENTUKAN BELAKANGAN
+------------------------------------------------------------
+[ ] Nama route mini-linktree final
+    contoh:
+    - /booking
+    - /links
+    - /reservasi
+
+[ ] Paket hosting Rumahweb final
+    - shared hosting
+    - cloud hosting
+    - VPS
+    - belum tahu
+
+[ ] Batas ukuran video upload final
+    - 50 MB
+    - 100 MB
+    - strategi lain
+
+[ ] Copywriting final per section
+[ ] Aset video final
+[ ] Favicon final
+[ ] CTA label final jika ingin lebih spesifik
+[ ] Daftar layanan awal final
+[ ] Detail isi footer final bila ingin ditambah
+
+Catatan:
+- Item-item ini tidak menghalangi pembangunan fondasi sistem
+- Bisa memakai placeholder lebih dulu
+
+============================================================
+6. CHECKLIST STRUKTUR HOMEPAGE
+------------------------------------------------------------
+Pastikan homepage dibangun dengan section berikut:
+
+[ ] Navbar
+[ ] Hero
+[ ] Tentang
+[ ] Video Highlight
+[ ] Services / Fasilitas / Use Case Venue
+[ ] Gallery
+[ ] Lokasi / kontak singkat
+[ ] Footer
+
+Catatan:
+- Urutan mengikuti referensi
+- Hero tetap pertama
+- Footer tetap terakhir
+- Section lain dikelola semi-flexible via composer
+
+============================================================
+7. CHECKLIST NAVBAR
+------------------------------------------------------------
+[ ] Navbar memakai nama teks saja
+[ ] Tidak ada logo untuk tahap awal
+[ ] Menu navbar sederhana dan cepat
+[ ] Mobile menu sederhana
+[ ] Label menu bisa diubah dari admin
+[ ] Floating WhatsApp button bisa ditambahkan
+[ ] Navbar tetap ringan dan profesional
+
+============================================================
+8. CHECKLIST HERO
+------------------------------------------------------------
+[ ] Hero hanya satu
+[ ] Bukan slider
+[ ] Bukan video background
+[ ] Background hero berupa gambar utama
+[ ] Overlay / gradient tersedia
+[ ] CTA menyesuaikan konteks tombol
+[ ] Hero disiapkan untuk parallax ringan
+[ ] Teks hero mudah dibaca di atas background
+[ ] Hero tetap aman untuk mobile dan low-spec
+
+Data hero yang harus bisa dikelola:
+[ ] Judul
+[ ] Subjudul
+[ ] Background image
+[ ] Overlay
+[ ] CTA primary
+[ ] CTA secondary jika dipakai
+[ ] Visibility
+[ ] Parallax toggle
+[ ] Parallax intensity sederhana
+[ ] Preview
+
+============================================================
+9. CHECKLIST ABOUT SECTION
+------------------------------------------------------------
+[ ] About hanya satu section tunggal
+[ ] Judul bisa diedit
+[ ] Isi teks bisa diedit
+[ ] Bisa menonjolkan tema:
+    - Borobudur
+    - desa wisata
+    - wedding
+    - gathering
+    - penginapan
+    - meeting
+    - acara keluarga
+    - budaya/adat
+[ ] Bisa diberi poin keunggulan jika diperlukan
+[ ] Tetap konsisten dengan nuansa referensi
+
+============================================================
+10. CHECKLIST VIDEO HIGHLIGHT
+------------------------------------------------------------
+[ ] Hanya 1 video aktif
+[ ] Video berasal dari upload sendiri
+[ ] Video dipilih dari media library
+[ ] Section bisa dinonaktifkan jika belum ada video
+[ ] Caption/judul video bisa diedit
+[ ] Tidak memaksa placeholder yang mengganggu
+
+============================================================
+11. CHECKLIST SERVICES
+------------------------------------------------------------
+[ ] Services bersifat dinamis
+[ ] Jumlah item tampil diatur admin
+[ ] Item tampil dalam bentuk card
+[ ] Klik card membuka popup/modal
+[ ] Bukan halaman detail
+[ ] Popup berisi:
+    - judul
+    - 1 gambar
+    - deskripsi lebih panjang
+    - poin keunggulan
+    - CTA sesuai kebutuhan
+
+Pengelolaan services:
+[ ] Tambah item
+[ ] Edit item
+[ ] Hapus item
+[ ] Drag and drop
+[ ] Input angka urutan
+[ ] Active/inactive
+[ ] Atur item tampil
+[ ] Pilih gambar dari media library
+
+============================================================
+12. CHECKLIST GALLERY
+------------------------------------------------------------
+[ ] Homepage menampilkan 6 item awal
+[ ] Klik item membuka lightbox
+[ ] Galeri ringan dan premium
+[ ] Tidak memakai parallax berat
+[ ] Item gallery dipilih dari media library
+[ ] Urutan gallery bisa diatur
+[ ] Gallery item bisa aktif/nonaktif
+[ ] Admin bisa menentukan item tampil
+
+============================================================
+13. CHECKLIST MINI-LINKTREE INTERNAL
+------------------------------------------------------------
+[ ] Buat halaman mini-linktree internal
+[ ] Jangan pakai layanan pihak ketiga
+[ ] Jadikan pusat link resmi
+
+Isi minimal:
+[ ] WhatsApp utama
+[ ] Instagram
+[ ] Google Maps
+[ ] Website booking / OTA
+
+OTA yang harus siap dimasukkan:
+[ ] Agoda
+[ ] Tiket.com
+[ ] Traveloka
+[ ] Booking.com
+[ ] Hotels.com
+
+Aturan CTA:
+[ ] Booking / OTA -> mini-linktree internal
+[ ] WhatsApp / Reservasi -> direct WA
+[ ] Social / Maps -> direct atau mini-linktree sesuai konteks
+
+============================================================
+14. CHECKLIST WHATSAPP FLOW
+------------------------------------------------------------
+[ ] Tidak ada form website
+[ ] Klik WA membuka WhatsApp langsung
+[ ] Template chat otomatis disiapkan
+[ ] Template terasa natural dan profesional
+[ ] Nomor WhatsApp utama bisa diubah dari admin
+[ ] Sistem siap untuk kemungkinan penambahan nomor di masa depan
+
+============================================================
+15. CHECKLIST FOOTER
+------------------------------------------------------------
+[ ] Footer mengikuti referensi
+[ ] Footer multi kolom
+[ ] Footer editable dari menu khusus
+[ ] Quick links editable
+[ ] Background/footer style boleh dibuat premium
+[ ] Footer memuat informasi penting dan kecil
+
+Konten footer yang perlu dipertimbangkan:
+[ ] Nama tempat
+[ ] Deskripsi singkat
+[ ] Alamat
+[ ] Kontak
+[ ] Instagram
+[ ] Maps
+[ ] Quick links
+[ ] Copyright
+
+============================================================
+16. CHECKLIST ADMIN PANEL
+------------------------------------------------------------
+[ ] Admin hanya 1 superadmin
+[ ] Login bisa pakai email atau username
+[ ] Password aman dan bisa diganti
+[ ] UI admin visual
+[ ] Admin mudah dipakai operator non-teknis
+[ ] Tidak ada multi role
+[ ] Tidak ada activity log untuk tahap awal
+
+Menu admin yang harus ada:
+[ ] Dashboard
+[ ] Homepage Composer
+[ ] Hero
+[ ] About
+[ ] Video Highlight
+[ ] Services
+[ ] Gallery
+[ ] Booking Links
+[ ] Footer
+[ ] Media Library
+[ ] Global Settings
+[ ] Versions / Snapshots
+[ ] Admin Account
+
+============================================================
+17. CHECKLIST HOMEPAGE COMPOSER
+------------------------------------------------------------
+[ ] Composer tersedia sebagai pusat pengaturan homepage
+[ ] Menampilkan daftar section
+[ ] Bisa drag & drop urutan
+[ ] Bisa aktif/nonaktif section
+[ ] Bisa edit judul/subjudul section
+[ ] Bisa atur jumlah item tampil
+[ ] Bisa masuk ke editor masing-masing section
+
+Batas composer:
+[ ] Hero tetap pertama
+[ ] Footer tetap terakhir
+[ ] Admin tidak bisa merusak layout inti
+[ ] Admin boleh tambah item dalam section
+[ ] Composer bersifat semi-flexible, bukan page builder penuh
+
+============================================================
+18. CHECKLIST MEDIA LIBRARY
+------------------------------------------------------------
+[ ] Semua aset memakai satu media library terpusat
+[ ] Jenis media:
+    - image
+    - video
+    - favicon
+    - dokumen/pdf
+
+Metadata media:
+[ ] Nama media
+[ ] Alt text
+[ ] Caption
+[ ] Kategori
+[ ] Tag
+[ ] Status aktif
+[ ] Tanggal upload
+
+Fitur media library:
+[ ] Multi-upload
+[ ] Thumbnail preview
+[ ] Search
+[ ] Filter by media type
+[ ] Fallback/default media
+[ ] Proteksi delete jika media sedang dipakai
+
+Catatan:
+[ ] Tidak perlu fitur lihat media dipakai di section mana untuk v1
+
+============================================================
+19. CHECKLIST PREVIEW / DRAFT / PUBLISH / RESTORE
+------------------------------------------------------------
+[ ] Save tersedia
+[ ] Draft tersedia
+[ ] Preview tersedia
+[ ] Publish tersedia
+[ ] Preview berupa satu halaman penuh
+[ ] Autosave disiapkan
+[ ] Snapshot homepage saat publish
+[ ] Versi lama bisa dipreview
+[ ] Versi lama bisa dipublish ulang
+[ ] Minimal revisi terakhir bisa direstore
+
+Daftar versi idealnya menampilkan:
+[ ] Nomor versi
+[ ] Tanggal/waktu publish
+[ ] Siapa yang publish
+[ ] Tombol preview
+[ ] Tombol restore / publish ulang
+
+============================================================
+20. CHECKLIST ANIMASI DAN PARALLAX
+------------------------------------------------------------
+[ ] Hero menjadi pusat utama parallax
+[ ] Parallax dibuat halus tapi terasa
+[ ] Parallax fokus pada overlay/gradient/depth ringan
+[ ] Tentang boleh mendapat efek ringan
+[ ] Section transisi/background tertentu boleh mendapat efek ringan
+[ ] Galeri tidak boleh memakai parallax berat
+[ ] Services tidak boleh memakai parallax berat
+
+Animasi lain:
+[ ] Services -> reveal + hover ringan + popup smooth
+[ ] Gallery -> reveal ringan + stagger + lightbox smooth
+[ ] Video -> fade/slide halus
+[ ] Footer/lokasi -> minimal motion
+
+Aturan safety:
+[ ] Mobile mendapat versi animasi lebih ringan
+[ ] Low-spec device mendapat fallback
+[ ] Heavy effects boleh dimatikan otomatis
+[ ] Hormati prefers-reduced-motion
+[ ] Maksimal 1 parallax utama
+[ ] Maksimal 2–3 section efek premium ringan
+[ ] Sisanya animasi biasa
+
+Kontrol admin sederhana:
+[ ] Toggle parallax hero
+[ ] Intensitas ringan/sedang
+[ ] Overlay terang/sedang/gelap
+
+============================================================
+21. CHECKLIST SEO DAN ANALYTICS
+------------------------------------------------------------
+[ ] SEO sederhana disiapkan di admin
+[ ] Field minimal:
+    - Meta Title
+    - Meta Description
+    - OG Image
+
+[ ] GA4 disiapkan
+[ ] Script head/body custom bisa dimasukkan dari admin
+[ ] Favicon default disiapkan
+[ ] Favicon bisa diupload dari admin nanti
+
+============================================================
+22. CHECKLIST HOSTING DAN PERFORMA
+------------------------------------------------------------
+[ ] Sistem harus aman jika nanti memakai shared hosting Rumahweb
+[ ] Animasi tidak boleh terlalu berat
+[ ] Gambar harus siap dioptimasi
+[ ] Video perlu perhatian khusus
+[ ] Struktur sistem harus tetap fleksibel jika nanti pindah hosting lebih tinggi
+[ ] Mobile performance tetap diprioritaskan
+[ ] Visual dan performa harus seimbang
+
+============================================================
+23. CHECKLIST STRUKTUR DATA TINGKAT TINGGI
+------------------------------------------------------------
+Pastikan rancangan data/logika mencakup:
+[ ] admin_users
+[ ] global_settings
+[ ] homepage_sections
+[ ] hero_config
+[ ] about_section
+[ ] video_highlight
+[ ] services
+[ ] gallery_items
+[ ] booking_links
+[ ] social_links atau gabung ke booking_links/settings
+[ ] footer_configs
+[ ] footer_links
+[ ] media_library
+[ ] homepage_snapshots
+[ ] seo settings dalam global/settings
+[ ] custom scripts dalam settings
+
+============================================================
+24. CHECKLIST AUTH ADMIN
+------------------------------------------------------------
+[ ] Login email/username + password
+[ ] Password di-hash aman
+[ ] Session auth aman
+[ ] Logout
+[ ] Change password
+[ ] Route admin diproteksi auth
+
+Tidak wajib untuk v1:
+[ ] Forgot password
+[ ] 2FA
+[ ] Login activity log
+[ ] IP whitelist
+
+============================================================
+25. CHECKLIST COPYWRITING AWAL
+------------------------------------------------------------
+[ ] Siapkan draft awal hero title
+[ ] Siapkan draft awal hero subtitle
+[ ] Siapkan draft awal about text
+[ ] Siapkan draft awal service descriptions
+[ ] Siapkan draft CTA labels
+[ ] Siapkan draft text footer
+[ ] Siapkan draft Meta Title
+[ ] Siapkan draft Meta Description
+
+Tone penulisan:
+[ ] mengikuti referensi
+[ ] premium
+[ ] hangat
+[ ] profesional
+[ ] elegan
+
+============================================================
+26. CHECKLIST SEBELUM MULAI CODING
+------------------------------------------------------------
+Sebelum implementasi penuh, cek:
+[ ] Referensi desain utama sudah siap
+[ ] Folder project CI4 siap
+[ ] Laragon environment siap
+[ ] DB lokal siap
+[ ] Route admin dasar siap
+[ ] Data WhatsApp valid
+[ ] Data Instagram valid
+[ ] Data Maps valid
+[ ] Daftar OTA valid
+[ ] Minimal satu hero image siap
+[ ] Minimal beberapa gallery image siap
+
+Jika belum semua final:
+[ ] gunakan placeholder yang aman
+[ ] lanjut bangun fondasi sistem terlebih dahulu
+
+============================================================
+27. URUTAN KERJA YANG DIREKOMENDASIKAN
+------------------------------------------------------------
+Tahap 1:
+[ ] Setup project CI4
+[ ] Setup auth admin dasar
+[ ] Setup layout public
+[ ] Setup layout admin
+
+Tahap 2:
+[ ] Bangun homepage public berdasarkan referensi
+[ ] Bangun navbar
+[ ] Bangun hero
+[ ] Bangun about
+[ ] Bangun services
+[ ] Bangun gallery
+[ ] Bangun footer
+[ ] Bangun CTA flow dasar
+
+Tahap 3:
+[ ] Bangun media library
+[ ] Hubungkan hero/gallery/services dengan media library
+
+Tahap 4:
+[ ] Bangun Homepage Composer
+[ ] Bangun Services Manager
+[ ] Bangun Gallery Manager
+[ ] Bangun Booking Links Manager
+[ ] Bangun Footer Manager
+[ ] Bangun Global Settings
+
+Tahap 5:
+[ ] Bangun draft/save/preview/publish
+[ ] Bangun snapshot homepage
+[ ] Bangun restore version
+
+Tahap 6:
+[ ] Tambahkan animasi dan parallax secara terukur
+[ ] Tambahkan fallback low-spec
+[ ] Optimasi performa frontend
+
+Tahap 7:
+[ ] Tambahkan SEO sederhana
+[ ] Tambahkan GA4/custom scripts
+[ ] Tambahkan favicon management
+[ ] Testing final
+[ ] Persiapan deploy
+
+============================================================
+28. RISIKO YANG HARUS DIJAGA SAAT EKSEKUSI
+------------------------------------------------------------
+[ ] Jangan sampai semi-flexible berubah jadi full page builder
+[ ] Jangan terlalu banyak animasi
+[ ] Jangan memberi admin kontrol desain terlalu liar
+[ ] Jangan membuat popup layanan terlalu rumit
+[ ] Jangan membuat video menjadi bottleneck performa
+[ ] Jangan membiarkan media dihapus saat masih dipakai
+[ ] Jangan publish perubahan tanpa sistem snapshot
+[ ] Jangan abaikan mobile performance
+[ ] Jangan keluar terlalu jauh dari referensi visual
+
+============================================================
+29. DEFINISI SUKSES IMPLEMENTASI
+------------------------------------------------------------
+Implementasi dianggap berhasil jika:
+[ ] Tampilan publik sangat dekat dengan referensi
+[ ] Website terlihat premium dan profesional
+[ ] Booking/CTA flow jelas
+[ ] WhatsApp berjalan baik dengan template chat
+[ ] Mini-linktree internal rapi dan berfungsi
+[ ] Services popup nyaman dipakai
+[ ] Gallery lightbox berjalan halus
+[ ] Admin mudah dipakai user non-teknis
+[ ] Media library nyaman digunakan
+[ ] Preview/publish/restore berjalan aman
+[ ] Parallax terasa profesional tapi tetap ringan
+[ ] Website aman di mobile dan low-spec
+[ ] Sistem siap dikembangkan lebih lanjut bila diperlukan
+
+============================================================
+30. PENUTUP
+------------------------------------------------------------
+Checklist ini adalah panduan eksekusi praktis proyek website Balkondes Bumiharjo.
+
+Gunakan bersama:
+1. BACKUP REQUIREMENT LENGKAP
+2. SPESIFIKASI TEKNIS DEVELOPER
+3. CHECKLIST EKSEKUSI PROYEK ini
+
+Dengan tiga dokumen tersebut, seluruh konteks diskusi proyek sudah ter-backup:
+- requirement bisnis
+- keputusan visual
+- arah UX
+- flow CTA
+- arsitektur admin
+- media flow
+- animasi
+- performa
+- versioning
+- arah teknis implementasi
+
+============================================================
+SELESAI
+============================================================

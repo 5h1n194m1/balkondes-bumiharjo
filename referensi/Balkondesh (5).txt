@@ -1,0 +1,885 @@
+============================================================
+BACKUP REQUIREMENT PROYEK WEBSITE
+BALKONDES BUMIHARJO
+STACK: CODEIGNITER 4 TERBARU + LARAGON + WINDOWS + VS CODE
+STATUS: BACKUP LENGKAP HASIL DISCOVERY PRA-EKSEKUSI
+============================================================
+
+A. INFORMASI DASAR PROYEK
+------------------------------------------------------------
+Nama proyek:
+- Website Balkondes Bumiharjo
+
+Tujuan utama website:
+- Promosi wisata
+- Branding tempat
+- Booking / reservasi / pengalihan ke channel booking
+
+Tujuan aksi pengunjung:
+1. Lihat galeri
+2. Booking
+3. Baca informasi terkait tempat
+
+Target pengunjung:
+- Hampir semua kalangan
+- Tempat dapat digunakan untuk:
+  - acara adat
+  - wedding
+  - meeting
+  - makan bersama
+  - gathering komunitas
+  - dan berbagai acara/kegiatan lain
+
+Cakupan proyek:
+- Fokus hanya untuk Balkondes Bumiharjo
+- Bukan multi-cabang
+- Bukan multi-unit bisnis lain
+
+Lingkungan development:
+- Windows
+- Laragon
+- VS Code
+- CodeIgniter 4 versi terbaru
+
+Rencana hosting:
+- Rumahweb
+- Jenis paket hosting belum diputuskan
+
+Catatan utama:
+- Proyek dibahas sangat detail sebelum coding
+- Tujuannya agar saat eksekusi tidak terlalu banyak revisi
+- Referensi desain sudah ada dan menjadi acuan utama
+
+============================================================
+B. KARAKTER VISUAL DAN ARAH BRAND
+------------------------------------------------------------
+Karakter visual yang diinginkan:
+- profesional
+- mewah
+- elegan
+- informatif
+- tetap hangat ala desa wisata
+
+Gaya visual:
+- mengikuti referensi yang telah diberikan
+- sangat mirip referensi
+- tetap boleh dirapikan secara profesional tanpa keluar dari arah referensi
+
+Nuansa animasi:
+- luxury editorial
+- warm hospitality
+
+Warna:
+- mengikuti referensi
+
+Tipografi:
+- belum dikunci detailnya
+- arahnya mengikuti referensi
+- kemungkinan heading elegan dan body text tetap mudah dibaca
+
+Identitas brand pada navbar:
+- tidak memakai logo dulu
+- pakai nama teks saja
+
+Favicon:
+- belum ada
+- sistem harus menyiapkan favicon default dulu
+- nanti favicon bisa diganti lewat admin
+
+============================================================
+C. STRUKTUR WEBSITE PUBLIK
+------------------------------------------------------------
+Jenis website:
+- One-page landing page
+
+Keputusan inti:
+- Website hanya satu halaman utama
+- Layanan dan galeri hanya tampil di homepage
+- Tidak ada halaman detail layanan
+- Tidak ada halaman detail galeri
+
+Struktur homepage yang diinginkan:
+- mengikuti referensi
+
+Rancangan struktur homepage:
+1. Navbar
+2. Hero
+3. Tentang
+4. Video Highlight
+5. Layanan / Fasilitas / Use Case Venue
+6. Gallery
+7. Lokasi / Kontak singkat
+8. Footer
+
+Catatan:
+- Struktur umum mengikuti referensi
+- Footer tetap jadi area penting informasi
+- Lokasi mengikuti referensi
+- Tidak perlu section tambahan lain dulu
+
+Section tambahan yang saat ini tidak diprioritaskan:
+- testimoni
+- partner/client
+- FAQ
+- form kontak website
+- blog/artikel
+- halaman detail khusus
+
+============================================================
+D. NAVBAR
+------------------------------------------------------------
+Navbar:
+- sederhana
+- cepat
+- tidak terlalu berat
+- profesional
+
+Logo:
+- tidak dipakai untuk sementara
+
+Brand di kiri navbar:
+- nama teks saja:
+  Balkondes Bumiharjo
+
+Menu navbar:
+- bisa dikelola dari admin
+- label menu bisa diubah
+- dapat menyesuaikan section yang aktif
+- tetap dalam format aman
+
+Mobile menu:
+- sederhana
+- fokus cepat
+- tidak perlu efek berat
+
+Floating button:
+- floating WhatsApp button boleh ada
+
+============================================================
+E. HERO SECTION
+------------------------------------------------------------
+Hero:
+- hanya 1 hero utama
+- bukan slider
+- bukan video background
+
+Model visual hero:
+- 1 gambar utama
+- parallax ringan
+- overlay / gradient
+- tetap ringan
+
+Fokus hero:
+- kombinasi semuanya:
+  - penginapan
+  - venue acara
+  - daya tarik tempat
+  - nuansa destinasi/wisata
+
+Tujuan hero:
+- menjadi pembuka utama website
+- menampilkan visual premium
+- langsung membentuk kesan profesional dan mewah
+- tetap ringan untuk semua perangkat
+
+CTA di hero:
+- menyesuaikan konteks tombol:
+  - jika tombol booking -> ke mini-linktree internal
+  - jika tombol WhatsApp / reservasi -> langsung ke WhatsApp
+  - jika tombol lain -> bisa direct link atau ke mini-linktree sesuai konteks
+
+Data hero yang perlu dikelola:
+- judul
+- subjudul
+- background image
+- overlay
+- CTA
+- status tampil
+- preview sebelum publish
+
+Aset hero:
+- foto hero ada
+- aset masih campur
+- sebagian sudah final
+
+============================================================
+F. ABOUT / TENTANG SECTION
+------------------------------------------------------------
+Tentang:
+- satu section tunggal
+- tidak dibuat multi item
+
+Isi tentang:
+- bisa diedit dari admin kapan saja
+- draft awal dapat dibuat mengikuti nuansa referensi
+
+Narasi yang boleh ditonjolkan:
+- Borobudur
+- desa wisata
+- wedding
+- gathering
+- penginapan
+- meeting
+- acara keluarga
+- budaya/adat
+
+Karakter section:
+- informatif
+- elegan
+- bisa diperluas secara narasi
+- tetap cocok untuk positioning luas
+
+============================================================
+G. VIDEO HIGHLIGHT
+------------------------------------------------------------
+Video highlight:
+- hanya 1 video aktif
+- video berasal dari upload file sendiri
+- bisa dinonaktifkan bila belum ada video
+
+Kondisi saat ini:
+- video highlight belum ada
+
+Sistem video:
+- video dipilih dari media library
+- struktur sistem harus fleksibel
+- keputusan final batas ukuran file video bisa ditentukan belakangan
+- perlu menyesuaikan kondisi hosting Rumahweb
+
+Tujuan video:
+- memperkuat kesan premium dan emosional
+- memberi showcase suasana tempat
+- tetap ringan dan tidak memaksa tampil jika belum ada
+
+============================================================
+H. LAYANAN / FASILITAS / USE CASE VENUE
+------------------------------------------------------------
+Prioritas utama layanan:
+- penginapan
+- venue acara
+
+Layanan lain yang bisa ditambahkan:
+- wedding
+- meeting
+- gathering
+- makan bersama
+- acara adat
+- dan lain-lain
+
+Karakter modul layanan:
+- dinamis
+- jumlah item fleksibel
+- admin dapat menentukan berapa item yang tampil di homepage
+
+Tampilan layanan:
+- card di homepage
+- bukan halaman detail
+
+Saat card diklik:
+- membuka popup / modal
+- bukan membuka halaman baru
+
+Isi popup layanan:
+- deskripsi lebih panjang
+- beberapa poin keunggulan
+- gambar 1 buah
+- CTA sesuai kebutuhan
+- tidak perlu galeri mini di dalam popup
+
+Pengelolaan layanan:
+- tambah item
+- edit item
+- ubah urutan
+- drag and drop
+- input angka urutan juga boleh
+- aktif/nonaktif
+- atur berapa item yang tampil
+
+Kategori layanan:
+- tidak dikunci keras
+- fleksibel sesuai kebutuhan admin nanti
+
+============================================================
+I. GALLERY
+------------------------------------------------------------
+Jumlah item awal di homepage:
+- 6 item
+
+Perilaku klik:
+- membuka lightbox popup
+
+Karakter galeri:
+- visual
+- premium
+- tidak terlalu berat
+- tidak memakai parallax berat
+
+Animasi galeri:
+- reveal ringan
+- stagger reveal
+- hover halus
+- lightbox transisi smooth
+
+Media galeri:
+- foto galeri ada
+- aset masih campur
+- sebagian sudah final
+
+Pengelolaan galeri:
+- tambah/hapus item
+- pilih media dari media library
+- urutkan item
+- aktif/nonaktif
+- atur item tampil
+
+============================================================
+J. MINI-LINKTREE INTERNAL / HALAMAN LINK UTAMA
+------------------------------------------------------------
+Konsep:
+- membuat mini-linktree sendiri
+- tidak memakai pihak ketiga
+- menjadi pusat link resmi
+
+Fungsi:
+- dipakai untuk booking dan link penting
+- membuat website terlihat lebih rapi dan profesional
+- memusatkan semua jalur kontak / booking resmi
+
+Isi link utama:
+1. WhatsApp (Global Reservasi)
+2. Instagram
+3. Google Maps
+4. Website Booking / OTA
+
+OTA yang sudah tersedia:
+- Agoda
+- Tiket.com
+- Traveloka
+- Booking.com
+- Hotels.com
+
+Aturan CTA:
+- tombol Booking Stay / OTA -> ke mini-linktree internal
+- tombol WhatsApp / Reservasi / Hubungi Kami -> langsung ke WhatsApp dengan template chat
+- tombol social / Maps / kanal lain -> direct link atau ke mini-linktree sesuai konteks
+
+Model OTA:
+- satu pintu yang memperlihatkan pilihan OTA
+
+Link tambahan masa depan yang bisa didukung:
+- TikTok
+- YouTube
+- PDF brochure
+- link tambahan lain
+
+============================================================
+K. WHATSAPP DAN TEMPLATE CHAT
+------------------------------------------------------------
+Klarifikasi penting:
+- yang dimaksud “form singkat” sebelumnya ternyata bukan form di website
+- yang diinginkan adalah template teks otomatis di WhatsApp
+
+Keputusan final:
+- TIDAK ADA form website
+- TIDAK ADA contact form internal di website
+- TIDAK ADA modul pesan masuk dari form website pada tahap ini
+
+Alur kontak utama:
+- klik tombol WhatsApp -> buka WA dengan template chat otomatis
+
+Nomor WhatsApp:
+- saat ini 1 nomor utama
+- ke depan mungkin bisa ditambah
+
+Template chat:
+- dibuat agar user bisa langsung bertanya / reservasi
+- bisa disesuaikan nanti agar terasa natural dan profesional
+
+============================================================
+L. FOOTER
+------------------------------------------------------------
+Footer:
+- mengikuti referensi
+- profesional
+- multi kolom
+- dapat berisi informasi kecil dan link penting
+
+Footer dikelola dari menu khusus admin
+
+Karakter footer:
+- rapi
+- elegan
+- informatif
+- quick links editable
+- dapat diberi background/visual agar terasa lebih premium
+
+Isi footer pada prinsipnya mengikuti referensi, lalu bisa disesuaikan lagi di admin
+
+============================================================
+M. ADMIN PANEL / DASHBOARD
+------------------------------------------------------------
+Tipe admin:
+- semi-flexible
+- profesional
+- mudah dioperasikan
+- cocok untuk user yang tidak terlalu paham manajemen website
+- fokus pada pengelolaan foto, video, link, dan isi section
+
+Prinsip utama:
+- fleksibel, tetapi formatting tetap aman
+- bukan full custom page builder
+- admin boleh banyak edit, tapi tidak boleh merusak struktur desain utama
+
+Jumlah akun:
+- 1 akun saja
+
+Role:
+- cukup superadmin saja
+
+Login:
+- email + password atau username + password, keduanya boleh
+
+Keamanan:
+- bisa ubah password
+- tidak perlu log aktivitas login dulu
+
+Karakter dashboard:
+- visual
+- banyak preview thumbnail/card
+- drag and drop di area yang relevan
+- aman untuk operator non-teknis
+
+============================================================
+N. HOMEPAGE COMPOSER
+------------------------------------------------------------
+Harus ada menu Homepage Composer
+
+Fungsi Homepage Composer:
+- menampilkan daftar section homepage
+- drag & drop urutan section
+- toggle aktif/nonaktif
+- edit judul/subjudul section
+- atur jumlah item tampil
+- masuk ke editor item pada tiap section
+
+Batas fleksibilitas:
+- hero tetap pertama
+- footer tetap terakhir
+- section lain bisa lebih fleksibel
+- admin boleh tambah item dalam section
+- admin tidak boleh mengubah desain bebas seenaknya seperti page builder penuh
+
+Section bisa:
+- diaktifkan
+- dinonaktifkan
+- diatur jumlah item tampil
+- diubah judulnya
+- diubah urutannya sesuai batas aman
+
+============================================================
+O. MODUL ADMIN FINAL
+------------------------------------------------------------
+Modul admin yang diinginkan:
+1. Dashboard
+2. Homepage Composer
+3. Hero Manager
+4. About Section
+5. Video Highlight
+6. Services
+7. Gallery
+8. Booking Links / Mini-linktree
+9. Footer Management
+10. Media Library
+11. Global Settings
+12. Versioning / Snapshot
+13. Admin Account
+
+Catatan:
+- modul Contact Messages dihapus karena form website dihapus
+
+============================================================
+P. MEDIA LIBRARY
+------------------------------------------------------------
+Media Library harus terpusat
+
+Semua aset memakai satu media library yang sama:
+- gambar hero
+- gambar layanan
+- gambar galeri
+- video
+- favicon
+- dokumen/pdf
+
+Jenis media yang didukung:
+- image
+- video
+- favicon
+- dokumen/pdf
+
+Metadata media:
+- nama media
+- alt text
+- caption
+- kategori
+- tag
+- status aktif
+- tanggal upload
+
+Fitur media library:
+- upload banyak file sekaligus
+- preview thumbnail
+- search media
+- filter berdasarkan tipe media
+- fallback/default media tersedia
+- media yang sedang dipakai tidak boleh dihapus langsung
+
+Catatan:
+- tidak perlu fitur “lihat media dipakai di section mana” untuk tahap awal
+
+Favicon:
+- walau belum ada, sistem harus menyiapkan favicon default
+- nanti favicon bisa diganti dari admin
+
+============================================================
+Q. PREVIEW, DRAFT, PUBLISH, VERSIONING
+------------------------------------------------------------
+Sistem editing homepage harus mendukung:
+- save
+- draft
+- preview
+- publish
+
+Preview:
+- satu halaman penuh
+
+Kebutuhan penting:
+- tampilan lama harus bisa disimpan
+- jika ada kesalahan, versi lama bisa dipilih dan dipublish ulang
+- minimal revisi terakhir bisa dikembalikan
+- sistem perlu autosave juga
+
+Snapshot:
+- saat publish, sistem menyimpan snapshot homepage
+- pendekatan yang cocok: snapshot total homepage
+
+Tampilan daftar versi yang diinginkan:
+- nomor versi
+- tanggal / waktu publish
+- siapa yang publish
+- tombol preview
+- tombol restore / publish ulang
+
+Tujuan fitur ini:
+- menghindari kehilangan hasil kerja
+- memudahkan rollback
+- menjaga keamanan operasional saat edit konten
+
+============================================================
+R. ANIMASI DAN PARALLAX
+------------------------------------------------------------
+Permintaan tambahan dari klien:
+- website harus memiliki animasi parallax
+- terlihat profesional
+- tetap aman untuk device low-spec
+- tetap aman untuk semua perangkat
+- visual harus premium tapi performa tetap terjaga
+
+Prinsip umum animasi:
+- parallax dipakai secukupnya
+- halus tapi terasa
+- premium, bukan norak
+- tidak terlalu berat
+- tidak membuat website terasa murahan
+- performa dan visual harus seimbang
+
+Section yang boleh mendapat efek premium / parallax:
+- hero
+- mungkin section tentang
+- mungkin section transisi / background tertentu
+- galeri dan card layanan tidak boleh berat
+
+Gaya parallax:
+- kombinasi ringan:
+  - background movement ringan
+  - depth movement ringan
+- bukan cinematic berlebihan
+
+Fokus utama parallax:
+- hero sebagai pusat utama parallax
+
+Hero parallax:
+- permainan utama pada overlay dan gradient
+- tidak terlalu bergantung pada aset kompleks
+- cocok karena aset saat ini belum lengkap untuk parallax kompleks
+
+Galeri:
+- tidak perlu parallax berat
+- cukup animasi ringan
+
+Layanan:
+- reveal on scroll
+- hover ringan
+- popup transisi halus
+- tanpa parallax berat
+
+Tone animasi keseluruhan:
+- luxury editorial
+- warm hospitality
+
+Aturan low-spec dan mobile:
+- efek tetap hidup, tapi disederhanakan otomatis
+- efek berat boleh dimatikan
+- sistem harus menghormati prefers-reduced-motion
+- beberapa efek bisa desktop-only bila perlu
+- kualitas pengalaman mobile tetap dijaga
+
+Batas aman animasi:
+- maksimal 1 parallax utama
+- maksimal 2–3 section dengan efek scroll premium ringan
+- sisanya animasi biasa
+
+Kontrol animasi di admin:
+- sederhana saja
+- bukan kontrol teknis berlebihan
+- contoh kontrol sederhana:
+  - aktif/nonaktif parallax hero
+  - intensitas ringan/sedang
+  - overlay terang/sedang/gelap
+
+============================================================
+S. SEO DAN ANALYTICS
+------------------------------------------------------------
+Tracking yang diinginkan:
+- GA4
+
+SEO:
+- user belum terlalu paham SEO field, sudah dijelaskan
+
+Rekomendasi SEO sederhana di admin:
+- Meta Title
+- Meta Description
+- OG Image
+
+Tujuan:
+- hasil pencarian Google lebih rapi
+- preview link saat dibagikan ke WhatsApp / sosial media lebih bagus
+- branding lebih profesional
+
+Keputusan:
+- SEO homepage dibuat sederhana saja di admin
+- tidak perlu terlalu teknis
+
+Custom scripts:
+- admin perlu bisa memasukkan:
+  - kode GA4
+  - script tambahan head/body
+- ini untuk fleksibilitas tracking dan script lain di masa depan
+
+============================================================
+T. HOSTING DAN INFRASTRUKTUR
+------------------------------------------------------------
+Development lokal:
+- Windows
+- Laragon
+- VS Code
+- CodeIgniter 4 terbaru
+
+Hosting:
+- Rumahweb
+- paket hosting belum dipilih
+
+Konsekuensi teknis:
+- sistem harus aman jika nanti berakhir di shared hosting
+- video perlu dipikirkan matang karena ukuran file bisa besar
+- aset harus dioptimasi
+- fitur berat harus dikontrol
+- struktur sebaiknya tetap mudah dikembangkan jika nanti pindah ke hosting lebih tinggi
+
+============================================================
+U. KONTEN DAN COPYWRITING
+------------------------------------------------------------
+Teks website:
+- bisa diedit kapan saja dari dashboard admin
+- tidak dikunci permanen
+
+Draft copywriting awal:
+- boleh dibuat mengikuti referensi
+- nanti bisa diedit kapan saja
+
+Gaya copywriting:
+- mengikuti referensi
+- premium
+- hangat
+- profesional
+- elegan
+- cukup luas secara positioning
+
+Tema/kata kunci yang bisa ditonjolkan:
+- Borobudur
+- desa wisata
+- wedding
+- gathering
+- penginapan
+- meeting
+- acara keluarga
+- budaya/adat
+
+Status aset:
+- logo: tidak dipakai
+- favicon: belum ada
+- foto hero: ada
+- foto galeri: ada
+- video highlight: belum ada
+- nomor WhatsApp: ada
+- link social media: ada (Instagram)
+- alamat lengkap: ada
+- titik Google Maps: ada
+- link website booking: ada
+  - Agoda
+  - Tiket.com
+  - Traveloka
+  - Booking.com
+  - Hotels.com
+
+Kondisi aset:
+- masih campur
+- sebagian sudah final
+
+Panduan ukuran media:
+- belum ingin dipatok keras
+- sistem sebaiknya fleksibel
+- bisa memberi saran, bukan membatasi keras
+
+============================================================
+V. FITUR YANG TIDAK DIPAKAI DULU
+------------------------------------------------------------
+Untuk tahap awal, hal-hal berikut tidak dipakai / tidak diprioritaskan:
+- tidak ada form website
+- tidak ada contact form internal
+- tidak ada inbox pesan form
+- tidak ada halaman detail layanan
+- tidak ada halaman detail galeri
+- tidak ada multi role admin
+- tidak ada log aktivitas admin/login
+- tidak ada page builder full custom
+- tidak ada parallax berat di banyak section
+
+============================================================
+W. ARAH TEKNIS TINGKAT TINGGI
+------------------------------------------------------------
+Arah frontend:
+- one-page landing page
+- visual mengikuti referensi
+- responsive
+- premium
+- ringan
+- CTA jelas
+- aman untuk mobile dan low-spec
+- hero dengan parallax ringan
+- layanan dengan popup
+- galeri dengan lightbox
+- footer profesional
+
+Arah backend/admin:
+- superadmin tunggal
+- semi-flexible homepage composer
+- media library terpusat
+- preview full page
+- save/draft/publish
+- snapshot homepage
+- restore versi lama
+- SEO sederhana
+- GA4
+- custom scripts
+- favicon management
+- footer management
+- booking links management
+
+Arah struktur data/logika:
+- global settings
+- homepage sections
+- hero config
+- about section
+- video highlight
+- services
+- gallery items
+- booking links
+- social links
+- footer configs
+- media library
+- homepage snapshots
+- seo settings
+- custom scripts
+- admin users
+
+Catatan:
+- pendekatan snapshot total homepage saat publish sangat cocok
+- admin harus cukup fleksibel tapi desain tetap aman
+
+============================================================
+X. KEPUTUSAN PALING PENTING YANG SUDAH FINAL
+------------------------------------------------------------
+1. Website one-page
+2. Fokus hanya untuk Balkondes Bumiharjo
+3. Visual mengikuti referensi
+4. Karakter visual:
+   - profesional
+   - mewah
+   - elegan
+   - hangat
+5. Hero tunggal
+6. Hero memakai gambar utama + parallax ringan
+7. CTA booking ke mini-linktree internal
+8. CTA WhatsApp langsung ke WA dengan template chat
+9. Social/Maps/OTA ditata rapi via direct link atau mini-linktree
+10. Layanan tampil di homepage
+11. Layanan dibuka melalui popup, bukan halaman detail
+12. Gallery tampil 6 item awal
+13. Gallery memakai lightbox
+14. Video hanya 1 aktif
+15. Footer dikelola dari menu khusus
+16. Admin semi-flexible
+17. Media library terpusat
+18. Preview satu halaman penuh
+19. Ada save, draft, preview, publish
+20. Ada autosave
+21. Ada snapshot homepage
+22. Ada restore versi lama
+23. Superadmin tunggal
+24. SEO sederhana untuk homepage
+25. GA4 disiapkan
+26. Favicon default disiapkan
+27. Custom script setting disiapkan
+28. Parallax utama di hero
+29. Animasi lain dibuat halus
+30. Mobile dan low-spec mendapat fallback aman
+31. Visual dan performa harus seimbang
+
+============================================================
+Y. RINGKASAN SUPER SINGKAT UNTUK PROMPT ULANG
+------------------------------------------------------------
+Saya ingin membuat website one-page untuk Balkondes Bumiharjo menggunakan CodeIgniter 4 terbaru di Windows dengan Laragon dan VS Code. Tampilan publik harus sangat mengikuti referensi yang sudah diberikan, dengan nuansa profesional, mewah, elegan, hangat ala desa wisata. Fokus website adalah promosi wisata, branding, dan booking. CTA utama adalah WhatsApp dengan template chat otomatis, mini-linktree internal untuk booking dan OTA, serta link ke Instagram dan Google Maps. Hero hanya satu, memakai gambar utama dengan parallax ringan berbasis overlay/gradient. Layanan bersifat dinamis, tampil di homepage, dan saat diklik membuka popup/modal, bukan halaman detail. Gallery menampilkan 6 item awal dan menggunakan lightbox popup. Video highlight hanya satu aktif dan diupload sendiri. Tidak ada form website. Footer mengikuti referensi dan dikelola dari menu khusus. Admin hanya satu superadmin, dengan dashboard semi-flexible yang aman untuk operator non-teknis: ada homepage composer, media library terpusat, preview full page, save/draft/preview/publish, snapshot homepage, restore versi lama, pengaturan SEO sederhana, GA4, favicon, custom scripts, serta kontrol animasi sederhana. Animasi harus terlihat profesional dengan gaya luxury editorial + warm hospitality, parallax utama di hero, efek lain halus, dan wajib aman untuk mobile serta device low-spec.
+
+============================================================
+Z. STATUS DISKUSI SAAT BACKUP INI DIBUAT
+------------------------------------------------------------
+Status:
+- Discovery requirement sudah sangat matang
+- Belum masuk tahap coding
+- Belum masuk implementasi CI4
+- Belum masuk penulisan database final/detail kode
+- Namun seluruh kebutuhan utama, arah visual, arah UX, struktur admin, flow CTA, animasi, media, versioning, dan batas fleksibilitas sudah sangat jelas
+
+Tujuan backup ini:
+- agar jika chat hilang, seluruh hasil diskusi tetap aman
+- agar tidak perlu mengulang prompt panjang
+- agar bisa dijadikan dasar untuk lanjut ke:
+  - blueprint final
+  - struktur database
+  - struktur menu admin
+  - alur versioning
+  - implementasi CI4
+
+============================================================
+SELESAI
+============================================================
