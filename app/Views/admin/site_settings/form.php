@@ -2,8 +2,16 @@
 
 <?= $this->section('content') ?>
 <form method="post" action="<?= site_url('admin/site-settings') ?>" class="card">
-    <h2 style="margin-top:0;"><?= esc($title) ?></h2>
-    <p class="muted">Kelola semua teks utama, label section, CTA hero, video highlight, footer, dan informasi kontak landing page.</p>
+    <div class="page-head" style="margin-bottom:18px;">
+        <div>
+            <div class="eyebrow">Editor Landing Page</div>
+            <h2><?= esc($title) ?></h2>
+            <p class="muted">Kelola semua teks utama, label section, CTA hero, video highlight, footer, dan informasi kontak landing page.</p>
+        </div>
+        <div class="actions">
+            <a href="<?= site_url('/') ?>" target="_blank" rel="noopener" class="btn btn-outline">Preview Website</a>
+        </div>
+    </div>
 
     <div class="card" style="padding:20px;background:#f9fbfc;">
         <h3 style="margin-top:0;">Hero Section</h3>

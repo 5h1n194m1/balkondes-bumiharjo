@@ -4,26 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= esc($title ?? 'Admin Web Balkondes') ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #f5f7fb;
+            --bg: #f4eee4;
             --surface: #ffffff;
-            --border: #dbe3ef;
-            --text: #102030;
-            --muted: #5f7287;
-            --primary: #155e43;
-            --primary-dark: #114632;
+            --surface-soft: #fcf8f2;
+            --border: #e8ddce;
+            --text: #30271f;
+            --muted: #726455;
+            --primary: #b8854d;
+            --primary-dark: #9f723f;
+            --olive: #26493d;
             --danger: #b42318;
             --success: #027a48;
-            --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-            --radius: 18px;
+            --shadow: 0 24px 60px rgba(52, 39, 24, 0.08);
+            --radius: 22px;
         }
         * { box-sizing: border-box; }
         body {
             margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(180deg, #f8fafc, #edf3f8);
+            font-family: "Plus Jakarta Sans", Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(184,133,77,.14), transparent 26%),
+                radial-gradient(circle at bottom right, rgba(38,73,61,.12), transparent 30%),
+                linear-gradient(180deg, #faf5ed, #f3ece1);
             color: var(--text);
+        }
+        h1, h2, h3 {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            letter-spacing: -.02em;
         }
         a { color: inherit; text-decoration: none; }
         .app {
@@ -32,7 +44,9 @@
             grid-template-columns: 270px 1fr;
         }
         .sidebar {
-            background: linear-gradient(180deg, #0e2c21, #134232);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,.08), transparent 26%),
+                linear-gradient(180deg, #1f342c, #253f35 52%, #16261f);
             color: #fff;
             padding: 28px 20px;
             position: sticky;
@@ -46,11 +60,16 @@
             background: rgba(255,255,255,.08);
             border: 1px solid rgba(255,255,255,.08);
         }
-        .brand strong { display: block; font-size: 20px; }
+        .brand strong {
+            display: block;
+            font-size: 29px;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            line-height: .95;
+        }
         .brand span { display: block; font-size: 13px; color: rgba(255,255,255,.72); margin-top: 6px; }
         .nav-label {
             font-size: 11px;
-            letter-spacing: .08em;
+            letter-spacing: .18em;
             text-transform: uppercase;
             color: rgba(255,255,255,.62);
             margin: 22px 12px 8px;
@@ -82,9 +101,16 @@
             border-radius: var(--radius);
             box-shadow: var(--shadow);
         }
-        .welcome-card { padding: 18px 22px; }
+        .welcome-card {
+            padding: 20px 24px;
+            background: linear-gradient(180deg, rgba(255,255,255,.98), rgba(252,248,242,.98));
+        }
         .welcome-card small { color: var(--muted); display: block; margin-bottom: 4px; }
-        .welcome-card strong { font-size: 20px; }
+        .welcome-card strong {
+            font-size: 32px;
+            line-height: .95;
+            font-family: "Cormorant Garamond", Georgia, serif;
+        }
         .actions { display: flex; gap: 10px; flex-wrap: wrap; }
         .btn {
             display: inline-flex;
@@ -95,10 +121,12 @@
             border: 1px solid transparent;
             font-weight: 700;
             cursor: pointer;
-            background: #edf4ef;
+            background: #f1ece3;
             color: var(--text);
+            transition: transform .18s ease, background .18s ease, border-color .18s ease;
         }
-        .btn-primary { background: var(--primary); color: #fff; }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: linear-gradient(180deg, #c28f58, var(--primary-dark)); color: #fff; box-shadow: 0 18px 34px rgba(184,133,77,.24); }
         .btn-primary:hover { background: var(--primary-dark); }
         .btn-outline { border-color: var(--border); background: #fff; }
         .btn-danger { background: #fef3f2; color: var(--danger); border-color: #fecdca; }
@@ -109,15 +137,20 @@
         .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
         .stat {
             padding: 18px;
-            border-radius: 16px;
-            background: #f9fbfc;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #fff, #fcf8f2);
             border: 1px solid var(--border);
         }
         .stat small { color: var(--muted); display: block; margin-bottom: 8px; }
-        .stat strong { font-size: 28px; }
+        .stat strong {
+            font-size: 34px;
+            line-height: .95;
+            font-family: "Cormorant Garamond", Georgia, serif;
+        }
         .table-wrap { overflow-x: auto; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 14px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: middle; }
+        tbody tr:hover { background: #fcf8f2; }
         th { font-size: 13px; color: var(--muted); }
         .muted { color: var(--muted); }
         .badge {
@@ -136,7 +169,7 @@
             padding: 12px 14px;
             border-radius: 12px;
             border: 1px solid var(--border);
-            background: #fff;
+            background: #fffdf9;
             font: inherit;
         }
         textarea { min-height: 130px; resize: vertical; }
@@ -150,11 +183,38 @@
         .flash-success { background: #ecfdf3; border: 1px solid #abefc6; color: #027a48; }
         .flash-error { background: #fef3f2; border: 1px solid #fecdca; color: #912018; }
         .thumb { width: 96px; height: 72px; border-radius: 12px; object-fit: cover; background: #e5e7eb; }
+        .page-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 18px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+        .page-head h2 {
+            margin: 0;
+            font-size: 42px;
+            line-height: .95;
+        }
+        .subcard {
+            padding: 18px;
+            border-radius: 18px;
+            background: linear-gradient(180deg, #fff, #fcf8f2);
+            border: 1px solid var(--border);
+        }
         @media (max-width: 980px) {
             .app { grid-template-columns: 1fr; }
             .sidebar { min-height: auto; position: static; }
-            .grid-2, .grid-4 { grid-template-columns: 1fr; }
+            .grid-2, .grid-4, .grid-3 { grid-template-columns: 1fr; }
             .topbar { flex-direction: column; align-items: stretch; }
+            .page-head h2 { font-size: 34px; }
         }
     </style>
 </head>

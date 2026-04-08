@@ -2,7 +2,12 @@
 
 <?= $this->section('content') ?>
 <form method="post" action="<?= $record ? site_url('admin/booking-links/' . $record['id']) : site_url('admin/booking-links') ?>" class="card">
-    <h2 style="margin-top:0;"><?= esc($title) ?></h2>
+    <div class="page-head" style="margin-bottom:18px;">
+        <div>
+            <div class="eyebrow">Conversion Editor</div>
+            <h2><?= esc($title) ?></h2>
+        </div>
+    </div>
     <div class="grid-2">
         <div class="field">
             <label>Grup Link</label>

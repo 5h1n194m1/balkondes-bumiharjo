@@ -2,8 +2,17 @@
 
 <?= $this->section('content') ?>
 <div class="card">
-    <h2 style="margin-top:0;"><?= esc($title) ?></h2>
-    <p class="muted">Ringkasan cepat konten website dan pintasan untuk mengelola halaman publik.</p>
+    <div class="page-head">
+        <div>
+            <div class="eyebrow">Dashboard</div>
+            <h2><?= esc($title) ?></h2>
+            <p class="muted">Ringkasan cepat konten website dan pintasan untuk mengelola halaman publik.</p>
+        </div>
+        <div class="actions">
+            <a href="<?= site_url('/') ?>" target="_blank" rel="noopener" class="btn btn-outline">Preview Landing Page</a>
+            <a href="<?= site_url('admin/site-settings') ?>" class="btn btn-primary">Edit Landing Page</a>
+        </div>
+    </div>
     <div class="grid-4">
         <div class="stat">
             <small>Hero Slides</small>
@@ -29,7 +38,12 @@
 </div>
 
 <div class="card">
-    <h3 style="margin-top:0;">Kontrol landing page</h3>
+    <div class="page-head">
+        <div>
+            <div class="eyebrow">Workflow</div>
+            <h2>Kontrol Landing Page</h2>
+        </div>
+    </div>
     <div class="grid-3">
         <div class="stat">
             <small>1. Pengaturan dasar</small>

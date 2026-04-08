@@ -2,9 +2,10 @@
 
 <?= $this->section('content') ?>
 <div class="card">
-    <div style="display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;">
+    <div class="page-head">
         <div>
-            <h2 style="margin:0;"><?= esc($title) ?></h2>
+            <div class="eyebrow">Konversi</div>
+            <h2><?= esc($title) ?></h2>
             <p class="muted">Kelola link kontak utama dan seluruh OTA yang muncul di halaman booking hub.</p>
         </div>
         <a href="<?= site_url('admin/booking-links/create') ?>" class="btn btn-primary">Tambah Link</a>

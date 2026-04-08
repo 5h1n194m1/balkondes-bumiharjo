@@ -2,7 +2,12 @@
 
 <?= $this->section('content') ?>
 <form method="post" enctype="multipart/form-data" action="<?= $record ? site_url('admin/services/' . $record['id']) : site_url('admin/services') ?>" class="card">
-    <h2 style="margin-top:0;"><?= esc($title) ?></h2>
+    <div class="page-head" style="margin-bottom:18px;">
+        <div>
+            <div class="eyebrow">Service Editor</div>
+            <h2><?= esc($title) ?></h2>
+        </div>
+    </div>
     <div class="grid-2">
         <div class="field">
             <label>Icon / Emoji</label>

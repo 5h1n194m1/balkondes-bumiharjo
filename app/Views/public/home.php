@@ -46,6 +46,10 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+            .feature-pill {
+                @apply rounded-full bg-white/70 px-4 py-2 text-sm font-semibold text-[var(--muted)] shadow-[0_16px_28px_rgba(52,39,24,0.08)];
+                backdrop-filter: blur(10px);
+            }
         }
 
         .hero-layer, .parallax-card { will-change: transform; }
@@ -87,6 +91,22 @@
             opacity: .55;
             transform: scale(1.08);
         }
+        .menu-sheet {
+            transition: opacity .22s ease, transform .22s ease;
+            transform-origin: top right;
+        }
+        .floating-dock {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 45;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .floating-dock a {
+            box-shadow: 0 20px 40px rgba(52,39,24,.12);
+        }
         .no-scroll { overflow: hidden; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -97,6 +117,19 @@
                 transition: none;
             }
             .hero-layer, .parallax-card, .hero-orb, .hero-grid, .hero-backdrop, .hero-tilt { transform: none !important; transition: none; }
+        }
+
+        @media (max-width: 767px) {
+            .floating-dock {
+                left: 14px;
+                right: 14px;
+                bottom: 14px;
+                justify-content: stretch;
+            }
+            .floating-dock a {
+                flex: 1;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -239,6 +272,16 @@
             <div class="flex items-center gap-2">
                 <a class="hidden rounded-full px-4 py-2 text-sm font-semibold text-[var(--muted)] transition hover:bg-white/60 sm:inline-flex" href="<?= esc($whatsappLink) ?>" target="_blank" rel="noopener">WhatsApp</a>
                 <a class="inline-flex rounded-full bg-[var(--gold)] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#9d723e]" href="<?= esc($heroBookingUrl) ?>">Booking</a>
+                <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/70 text-[var(--ink)] md:hidden" data-menu-toggle aria-label="Buka menu">+</button>
+            </div>
+        </div>
+        <div class="menu-sheet mt-3 hidden rounded-[1.6rem] bg-white/90 p-4 shadow-[0_20px_40px_rgba(52,39,24,0.12)] backdrop-blur-xl md:hidden" data-menu-sheet>
+            <div class="grid gap-2 text-sm font-semibold text-[var(--muted)]">
+                <a class="rounded-[1rem] px-3 py-3 transition hover:bg-[var(--surface-soft)]" href="#tentang">Tentang</a>
+                <a class="rounded-[1rem] px-3 py-3 transition hover:bg-[var(--surface-soft)]" href="#pengalaman">Pengalaman</a>
+                <a class="rounded-[1rem] px-3 py-3 transition hover:bg-[var(--surface-soft)]" href="#galeri">Galeri</a>
+                <a class="rounded-[1rem] px-3 py-3 transition hover:bg-[var(--surface-soft)]" href="#lokasi">Lokasi</a>
+                <a class="rounded-[1rem] bg-[var(--surface-soft)] px-3 py-3 text-[var(--ink)]" href="<?= esc($whatsappLink) ?>" target="_blank" rel="noopener">Chat WhatsApp</a>
             </div>
         </div>
     </div>
@@ -266,6 +309,11 @@
                         <span>Venue Acara</span>
                         <span>Gathering</span>
                         <span>Borobudur</span>
+                    </div>
+                    <div class="mt-8 flex flex-wrap gap-3">
+                        <div class="feature-pill">One page booking flow</div>
+                        <div class="feature-pill">WhatsApp reservasi cepat</div>
+                        <div class="feature-pill">Nuansa desa yang elegan</div>
                     </div>
                 </div>
 
@@ -431,6 +479,11 @@
     </section>
 </main>
 
+<div class="floating-dock">
+    <a class="inline-flex rounded-full bg-[#1d4d3d] px-5 py-3 text-sm font-semibold text-white" href="<?= esc($whatsappLink) ?>" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="inline-flex rounded-full bg-[var(--gold)] px-5 py-3 text-sm font-semibold text-white" href="<?= esc($heroBookingUrl) ?>">Booking Hub</a>
+</div>
+
 <footer class="bg-[#3a3028] pb-10 pt-16 text-white">
     <div class="shell">
         <div class="grid gap-10 md:grid-cols-4">
@@ -524,6 +577,9 @@
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
 
     if (!prefersReducedMotion) {
+        document.querySelectorAll('.fade-up').forEach((element, index) => {
+            element.style.transitionDelay = `${Math.min(index * 40, 260)}ms`;
+        });
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -535,6 +591,24 @@
         document.querySelectorAll('.fade-up').forEach((element) => observer.observe(element));
     } else {
         document.querySelectorAll('.fade-up').forEach((element) => element.classList.add('is-visible'));
+    }
+
+    const menuToggle = document.querySelector('[data-menu-toggle]');
+    const menuSheet = document.querySelector('[data-menu-sheet]');
+    if (menuToggle && menuSheet) {
+        menuToggle.addEventListener('click', () => {
+            const isHidden = menuSheet.classList.contains('hidden');
+            menuSheet.classList.toggle('hidden', !isHidden);
+            menuSheet.classList.toggle('block', isHidden);
+            menuToggle.textContent = isHidden ? 'x' : '+';
+        });
+        menuSheet.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                menuSheet.classList.add('hidden');
+                menuSheet.classList.remove('block');
+                menuToggle.textContent = '+';
+            });
+        });
     }
 
     if (!prefersReducedMotion && isDesktop) {

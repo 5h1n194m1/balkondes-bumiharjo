@@ -2,9 +2,10 @@
 
 <?= $this->section('content') ?>
 <div class="card">
-    <div style="display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;">
+    <div class="page-head">
         <div>
-            <h2 style="margin:0;"><?= esc($title) ?></h2>
+            <div class="eyebrow">Landing Page</div>
+            <h2><?= esc($title) ?></h2>
             <p class="muted">Kelola daftar layanan utama yang tampil di landing page.</p>
         </div>
         <a href="<?= site_url('admin/services/create') ?>" class="btn btn-primary">Tambah Layanan</a>
