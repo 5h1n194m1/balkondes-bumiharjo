@@ -1,15 +1,15 @@
 <?= $this->extend('admin/layouts/main') ?>
 
 <?= $this->section('content') ?>
-<form method="post" action="<?= site_url('admin/site-settings') ?>" class="card">
+<form method="post" action="<?= app_relative_url('admin/site-settings') ?>" class="card">
     <div class="page-head" style="margin-bottom:18px;">
         <div>
             <div class="eyebrow">Editor Landing Page</div>
             <h2><?= esc($title) ?></h2>
-            <p class="muted">Kelola semua teks utama, label section, CTA hero, video highlight, footer, dan informasi kontak landing page.</p>
+            <p class="muted">Kelola teks utama, label section, CTA hero, footer, dan informasi kontak landing page.</p>
         </div>
         <div class="actions">
-            <a href="<?= site_url('/') ?>" target="_blank" rel="noopener" class="btn btn-outline">Preview Website</a>
+            <a href="<?= app_relative_url('/') ?>" target="_blank" rel="noopener" class="btn btn-outline">Preview Website</a>
         </div>
     </div>
 
@@ -88,39 +88,30 @@
     </div>
 
     <div class="card" style="padding:20px;background:#f9fbfc;">
-        <h3 style="margin-top:0;">Video, Galeri, dan Lokasi</h3>
-        <label class="checkbox"><input type="checkbox" name="video_enabled" value="1" <?= (int) old('video_enabled', $setting['video_enabled'] ?? 1) === 1 ? 'checked' : '' ?>> Tampilkan section video highlight</label>
+        <h3 style="margin-top:0;">Galeri dan Lokasi</h3>
         <div class="grid-2">
-            <div class="field">
-                <label>Judul Video</label>
-                <input type="text" name="video_title" value="<?= esc(old_or_value('video_title', $setting['video_title'] ?? '')) ?>">
-            </div>
             <div class="field">
                 <label>Label Galeri</label>
                 <input type="text" name="gallery_label" value="<?= esc(old_or_value('gallery_label', $setting['gallery_label'] ?? 'Galeri')) ?>">
             </div>
-        </div>
-        <div class="field">
-            <label>Caption Video</label>
-            <textarea name="video_caption"><?= esc(old_or_value('video_caption', $setting['video_caption'] ?? '')) ?></textarea>
-        </div>
-        <div class="grid-2">
             <div class="field">
                 <label>Judul Galeri</label>
                 <input type="text" name="gallery_title" value="<?= esc(old_or_value('gallery_title', $setting['gallery_title'] ?? '')) ?>">
             </div>
+        </div>
+        <div class="grid-2">
             <div class="field">
                 <label>Label Lokasi</label>
                 <input type="text" name="location_label" value="<?= esc(old_or_value('location_label', $setting['location_label'] ?? 'Lokasi Kami')) ?>">
+            </div>
+            <div class="field">
+                <label>Judul Lokasi</label>
+                <input type="text" name="location_title" value="<?= esc(old_or_value('location_title', $setting['location_title'] ?? '')) ?>">
             </div>
         </div>
         <div class="field">
             <label>Pengantar Galeri</label>
             <textarea name="gallery_intro"><?= esc(old_or_value('gallery_intro', $setting['gallery_intro'] ?? '')) ?></textarea>
-        </div>
-        <div class="field">
-            <label>Judul Lokasi</label>
-            <input type="text" name="location_title" value="<?= esc(old_or_value('location_title', $setting['location_title'] ?? '')) ?>">
         </div>
         <div class="field">
             <label>Pengantar Lokasi</label>
@@ -185,3 +176,4 @@
     <button class="btn btn-primary" type="submit">Simpan Pengaturan</button>
 </form>
 <?= $this->endSection() ?>
+

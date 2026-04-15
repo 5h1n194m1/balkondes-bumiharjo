@@ -1,7 +1,7 @@
 <?= $this->extend('admin/layouts/main') ?>
 
 <?= $this->section('content') ?>
-<form method="post" enctype="multipart/form-data" action="<?= $record ? site_url('admin/gallery-items/' . $record['id']) : site_url('admin/gallery-items') ?>" class="card">
+<form method="post" enctype="multipart/form-data" action="<?= $record ? app_relative_url('admin/gallery-items/' . $record['id']) : app_relative_url('admin/gallery-items') ?>" class="card">
     <div class="page-head" style="margin-bottom:18px;">
         <div>
             <div class="eyebrow">Gallery Editor</div>
@@ -45,7 +45,8 @@
     <label class="checkbox"><input type="checkbox" name="is_active" value="1" <?= (int) old('is_active', $record['is_active'] ?? 1) === 1 ? 'checked' : '' ?>> Aktifkan item</label>
     <div class="actions">
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="<?= site_url('admin/gallery-items') ?>" class="btn btn-outline">Kembali</a>
+        <a href="<?= app_relative_url('admin/gallery-items') ?>" class="btn btn-outline">Kembali</a>
     </div>
 </form>
 <?= $this->endSection() ?>
+

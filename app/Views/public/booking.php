@@ -21,7 +21,7 @@
 <body>
 <?php $companyName = setting_value($settings, 'company_name', 'Balkondes Bumiharjo'); ?>
 <main class="mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-16">
-    <a href="<?= esc(base_url('/')) ?>" class="inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#6e5f51] shadow-[0_18px_35px_rgba(60,40,18,0.08)] transition hover:-translate-y-0.5">Kembali ke Beranda</a>
+    <a href="<?= esc(app_relative_url()) ?>" class="inline-flex rounded-full bg-white px-5 py-3 text-sm font-semibold text-[#6e5f51] shadow-[0_18px_35px_rgba(60,40,18,0.08)] transition hover:-translate-y-0.5">Kembali ke Beranda</a>
 
     <section class="mt-8 rounded-[2.5rem] bg-gradient-to-br from-[#dfc29b] via-[#f4e5d2] to-[#fbf7f1] p-8 shadow-[0_30px_60px_rgba(59,41,18,0.08)] sm:p-12">
         <p class="text-[11px] font-semibold uppercase tracking-[0.34em] text-[#b8854d]">Official Booking Hub</p>

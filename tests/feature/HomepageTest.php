@@ -22,5 +22,7 @@ final class HomepageTest extends CIUnitTestCase
         $result->assertSee('Balkondes Bumiharjo');
         $result->assertSee('Lihat Opsi Booking');
         $result->assertSee('Pengalaman Tak Terlupakan');
+        $result->assertSee('/booking');
+        $result->assertSee('/gerbang-senja-bumiharjo');
     }
 }

@@ -31,4 +31,32 @@ final class AdminAuthTest extends CIUnitTestCase
 
         $result->assertRedirectTo(site_url('admin/dashboard'));
     }
+
+    public function testLogoutBeaconDestroysAdminSession(): void
+    {
+        $result = $this->withSession([
+            'admin_logged_in' => true,
+            'admin_id' => 1,
+            'admin_name' => 'Admin Web Balkondes',
+            'admin_email' => 'admin@web-balkondes.test',
+            'admin_last_activity' => time(),
+        ])->post('/admin/logout-beacon');
+
+        $result->assertStatus(204);
+    }
+
+    public function testIdleAdminSessionIsRedirectedToLogin(): void
+    {
+        $expiredTimestamp = time() - 901;
+
+        $result = $this->withSession([
+            'admin_logged_in' => true,
+            'admin_id' => 1,
+            'admin_name' => 'Admin Web Balkondes',
+            'admin_email' => 'admin@web-balkondes.test',
+            'admin_last_activity' => $expiredTimestamp,
+        ])->get('/admin/dashboard');
+
+        $result->assertRedirectTo(site_url('admin/login'));
+    }
 }

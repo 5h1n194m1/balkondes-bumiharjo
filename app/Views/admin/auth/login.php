@@ -32,6 +32,30 @@
             padding: 32px;
             box-shadow: 0 30px 80px rgba(41, 29, 17, .16);
         }
+        .top-links {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: rgba(47, 85, 70, .08);
+            color: var(--olive);
+            font-size: 13px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform .18s ease, background .18s ease;
+        }
+        .back-link:hover {
+            transform: translateY(-1px);
+            background: rgba(47, 85, 70, .12);
+        }
         .kicker {
             font-size: 11px;
             font-weight: 700;
@@ -91,7 +115,11 @@
     </style>
 </head>
 <body>
-    <form method="post" action="<?= esc($loginAction ?? site_url('admin/login')) ?>" class="card">
+    <form method="post" action="<?= esc($loginAction ?? app_relative_url('admin/login')) ?>" class="card">
+        <div class="top-links">
+            <a href="<?= esc(app_relative_url('/')) ?>" class="back-link">&larr; Kembali ke Website</a>
+            <a href="<?= esc(app_relative_url('admin/dashboard')) ?>" class="back-link">Dashboard Admin</a>
+        </div>
         <div class="kicker"><?= ! empty($isHiddenEntry) ? 'Private Entry' : 'Admin Panel' ?></div>
         <h1>Portal Kontrol Balkondes</h1>
         <p>Masuk untuk mengelola hero, section landing page, layanan, galeri, dan booking links secara terpusat.</p>

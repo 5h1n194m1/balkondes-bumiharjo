@@ -16,6 +16,7 @@ $routes->group('admin', static function ($routes) {
     $routes->get('login', 'Admin\\AuthController::login');
     $routes->post('login', 'Admin\\AuthController::attemptLogin');
     $routes->get('logout', 'Admin\\AuthController::logout');
+    $routes->post('logout-beacon', 'Admin\\AuthController::logoutBeacon');
 
     $routes->group('', ['filter' => 'auth'], static function ($routes) {
         $routes->get('/', 'Admin\\DashboardController::index');
@@ -23,6 +24,9 @@ $routes->group('admin', static function ($routes) {
 
         $routes->get('site-settings', 'Admin\\SiteSettingsController::edit');
         $routes->post('site-settings', 'Admin\\SiteSettingsController::update');
+
+        $routes->get('video-section', 'Admin\\VideoSectionController::edit');
+        $routes->post('video-section', 'Admin\\VideoSectionController::update');
 
         $routes->get('booking-links', 'Admin\\BookingLinksController::index');
         $routes->get('booking-links/create', 'Admin\\BookingLinksController::create');

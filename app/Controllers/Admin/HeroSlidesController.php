@@ -32,22 +32,20 @@ class HeroSlidesController extends BaseAdminController
 
     public function store()
     {
-        if (! $this->validate([
-            'title'       => 'permit_empty|max_length[255]',
-            'button_text' => 'permit_empty|max_length[255]',
-            'button_link' => 'permit_empty|max_length[255]',
-            'sort_order'  => 'permit_empty|integer',
-            'image_path'  => 'permit_empty|is_image[image_path]|max_size[image_path,5120]',
-        ])) {
+        if (! $this->validate($this->rules())) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
+        $imagePath = $this->moveUpload('image_path', 'uploads/hero');
 
         $this->model->insert([
             'title'       => trim((string) $this->request->getPost('title')),
             'subtitle'    => trim((string) $this->request->getPost('subtitle')),
             'button_text' => trim((string) $this->request->getPost('button_text')),
             'button_link' => trim((string) $this->request->getPost('button_link')) ?: '#layanan',
-            'image_path'  => $this->moveUpload('image_path', 'uploads/hero'),
+            'media_type'  => 'image',
+            'image_path'  => $imagePath,
+            'video_path'  => null,
             'sort_order'  => (int) ($this->request->getPost('sort_order') ?: 0),
             'is_active'   => $this->toggleValue('is_active'),
         ]);
@@ -67,22 +65,20 @@ class HeroSlidesController extends BaseAdminController
     {
         $record = $this->findOrFail($id);
 
-        if (! $this->validate([
-            'title'       => 'permit_empty|max_length[255]',
-            'button_text' => 'permit_empty|max_length[255]',
-            'button_link' => 'permit_empty|max_length[255]',
-            'sort_order'  => 'permit_empty|integer',
-            'image_path'  => 'permit_empty|is_image[image_path]|max_size[image_path,5120]',
-        ])) {
+        if (! $this->validate($this->rules())) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
+        $imagePath = $this->moveUpload('image_path', 'uploads/hero', $record['image_path']);
 
         $this->model->update($id, [
             'title'       => trim((string) $this->request->getPost('title')),
             'subtitle'    => trim((string) $this->request->getPost('subtitle')),
             'button_text' => trim((string) $this->request->getPost('button_text')),
             'button_link' => trim((string) $this->request->getPost('button_link')) ?: '#layanan',
-            'image_path'  => $this->moveUpload('image_path', 'uploads/hero', $record['image_path']),
+            'media_type'  => 'image',
+            'image_path'  => $imagePath,
+            'video_path'  => null,
             'sort_order'  => (int) ($this->request->getPost('sort_order') ?: 0),
             'is_active'   => $this->toggleValue('is_active'),
         ]);
@@ -94,9 +90,21 @@ class HeroSlidesController extends BaseAdminController
     {
         $record = $this->findOrFail($id);
         $this->deleteFile($record['image_path']);
+        $this->deleteFile($record['video_path'] ?? null);
         $this->model->delete($id);
 
         return redirect()->to('/admin/hero-slides')->with('success', 'Hero slide berhasil dihapus.');
+    }
+
+    protected function rules(): array
+    {
+        return [
+            'title'       => 'permit_empty|max_length[255]',
+            'button_text' => 'permit_empty|max_length[255]',
+            'button_link' => 'permit_empty|max_length[255]',
+            'sort_order'  => 'permit_empty|integer',
+            'image_path'  => 'permit_empty|is_image[image_path]|max_size[image_path,5120]',
+        ];
     }
 
     protected function findOrFail(int $id): array

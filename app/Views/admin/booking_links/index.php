@@ -8,7 +8,7 @@
             <h2><?= esc($title) ?></h2>
             <p class="muted">Kelola link kontak utama dan seluruh OTA yang muncul di halaman booking hub.</p>
         </div>
-        <a href="<?= site_url('admin/booking-links/create') ?>" class="btn btn-primary">Tambah Link</a>
+        <a href="<?= app_relative_url('admin/booking-links/create') ?>" class="btn btn-primary">Tambah Link</a>
     </div>
 </div>
 
@@ -37,8 +37,8 @@
                 <td><span class="badge <?= (int) $row['is_active'] === 1 ? 'badge-success' : 'badge-muted' ?>"><?= (int) $row['is_active'] === 1 ? 'Aktif' : 'Nonaktif' ?></span></td>
                 <td>
                     <div class="actions">
-                        <a href="<?= site_url('admin/booking-links/' . $row['id'] . '/edit') ?>" class="btn btn-outline">Edit</a>
-                        <form method="post" action="<?= site_url('admin/booking-links/' . $row['id'] . '/delete') ?>" onsubmit="return confirm('Hapus link ini?')">
+                        <a href="<?= app_relative_url('admin/booking-links/' . $row['id'] . '/edit') ?>" class="btn btn-outline">Edit</a>
+                        <form method="post" action="<?= app_relative_url('admin/booking-links/' . $row['id'] . '/delete') ?>" onsubmit="return confirm('Hapus link ini?')">
                             <button type="submit" class="btn btn-danger">Hapus</button>
                         </form>
                     </div>
@@ -49,3 +49,4 @@
     </table>
 </div>
 <?= $this->endSection() ?>
+

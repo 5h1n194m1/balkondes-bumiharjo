@@ -13,14 +13,10 @@ Website Balkondes Bumiharjo yang sudah dimigrasikan ke CodeIgniter 4.7 dengan du
 
 ## Default Dev URL
 
-- Default `php spark serve` berjalan di `http://192.168.1.4:8000`
-- Override tetap bisa dilakukan, misalnya:
+- Default `php spark serve` berjalan di `http://localhost:8000`
+- Jalankan `php spark serve --host localhost --port 8000` agar setiap perangkat membuka alamat yang sama tanpa membutuhkan perubahan `hosts`.
 
-```bash
-php spark serve --host 0.0.0.0 --port 8080
-```
-
-Project `web-balkondes` memakai session dan base URL sendiri agar tidak bentrok dengan project CI lain seperti `C:\laragon\www\pos`. Saat ini `pos` Anda memakai `8080`, jadi `web-balkondes` diposisikan default di `8000`.
+Project `web-balkondes` memakai session dan base URL sendiri agar tidak bentrok dengan project CI lain seperti `C:\laragon\www\pos`. Karena keseluruhan environment kini mengarah ke `localhost:8000`, Anda tidak perlu lagi mengelola host tambahan.
 
 ## Setup Lokal
 
@@ -30,7 +26,7 @@ Project `web-balkondes` memakai session dan base URL sendiri agar tidak bentrok 
 composer install
 ```
 
-2. Pastikan database MySQL `balkondes_bumiharjo` sudah ada di Laragon.
+2. Pastikan database MySQL `balkondes` sudah ada di Laragon.
 
 3. Sesuaikan `.env` jika username/password MySQL Anda berbeda.
 

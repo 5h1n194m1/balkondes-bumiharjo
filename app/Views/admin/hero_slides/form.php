@@ -1,7 +1,7 @@
 <?= $this->extend('admin/layouts/main') ?>
 
 <?= $this->section('content') ?>
-<form method="post" enctype="multipart/form-data" action="<?= $record ? site_url('admin/hero-slides/' . $record['id']) : site_url('admin/hero-slides') ?>" class="card">
+<form method="post" enctype="multipart/form-data" action="<?= $record ? app_relative_url('admin/hero-slides/' . $record['id']) : app_relative_url('admin/hero-slides') ?>" class="card">
     <div class="page-head" style="margin-bottom:18px;">
         <div>
             <div class="eyebrow">Hero Editor</div>
@@ -33,14 +33,16 @@
         </div>
     </div>
     <div class="field">
-        <label>Gambar Hero</label>
+        <label>Upload Foto Hero</label>
         <input type="file" name="image_path" accept="image/*">
         <?php if (! empty($record['image_path'])): ?><img src="<?= esc(media_url($record['image_path'])) ?>" class="thumb" alt="hero"><?php endif; ?>
     </div>
+    <p class="muted" style="margin-top:-8px;">Hero paling atas kembali khusus untuk foto seperti semula. Pengaturan video sekarang dipisah di menu Pengaturan Website.</p>
     <label class="checkbox"><input type="checkbox" name="is_active" value="1" <?= (int) old('is_active', $record['is_active'] ?? 1) === 1 ? 'checked' : '' ?>> Aktifkan slide</label>
     <div class="actions">
         <button type="submit" class="btn btn-primary">Simpan</button>
-        <a href="<?= site_url('admin/hero-slides') ?>" class="btn btn-outline">Kembali</a>
+        <a href="<?= app_relative_url('admin/hero-slides') ?>" class="btn btn-outline">Kembali</a>
     </div>
 </form>
 <?= $this->endSection() ?>
+

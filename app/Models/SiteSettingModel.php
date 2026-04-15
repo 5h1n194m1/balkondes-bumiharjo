@@ -31,6 +31,8 @@ class SiteSettingModel extends Model
         'gallery_label',
         'video_title',
         'video_caption',
+        'video_path',
+        'video_url',
         'video_enabled',
         'footer_title',
         'footer_description',

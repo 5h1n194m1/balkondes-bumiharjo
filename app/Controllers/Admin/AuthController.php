@@ -6,6 +6,8 @@ use App\Models\UserModel;
 
 class AuthController extends BaseAdminController
 {
+    private const ADMIN_IDLE_TIMEOUT = 900;
+
     public function login()
     {
         if (session()->get('admin_logged_in')) {
@@ -47,6 +49,7 @@ class AuthController extends BaseAdminController
             'admin_id'        => $user['id'],
             'admin_name'      => $user['name'],
             'admin_email'     => $user['email'],
+            'admin_last_activity' => time(),
         ]);
 
         (new UserModel())->update($user['id'], ['last_login_at' => date('Y-m-d H:i:s')]);
@@ -59,5 +62,14 @@ class AuthController extends BaseAdminController
         session()->destroy();
 
         return redirect()->to('/admin/login')->with('success', 'Anda berhasil logout.');
+    }
+
+    public function logoutBeacon()
+    {
+        if (session()->get('admin_logged_in')) {
+            session()->destroy();
+        }
+
+        return $this->response->setStatusCode(204);
     }
 }

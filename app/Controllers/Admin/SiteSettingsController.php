@@ -47,6 +47,7 @@ class SiteSettingsController extends BaseAdminController
             'gallery_title'   => 'permit_empty|max_length[255]',
             'gallery_label'   => 'permit_empty|max_length[255]',
             'video_title'     => 'permit_empty|max_length[255]',
+            'video_path'      => 'permit_empty|mime_in[video_path,video/mp4,video/webm,video/quicktime]|max_size[video_path,51200]',
             'footer_title'    => 'permit_empty|max_length[255]',
             'location_title'  => 'permit_empty|max_length[255]',
             'location_label'  => 'permit_empty|max_length[255]',
@@ -59,6 +60,8 @@ class SiteSettingsController extends BaseAdminController
         ])) {
             return redirect()->back()->withInput()->with('errors', $this->validator->getErrors());
         }
+
+        $videoPath = $this->moveUpload('video_path', 'uploads/site-settings/videos', $record['video_path'] ?? null);
 
         $model->update($record['id'], [
             'company_name'     => trim((string) $this->request->getPost('company_name')),
@@ -80,6 +83,7 @@ class SiteSettingsController extends BaseAdminController
             'gallery_label'    => trim((string) $this->request->getPost('gallery_label')),
             'video_title'      => trim((string) $this->request->getPost('video_title')),
             'video_caption'    => trim((string) $this->request->getPost('video_caption')),
+            'video_path'       => $videoPath,
             'video_enabled'    => $this->request->getPost('video_enabled') ? 1 : 0,
             'footer_title'     => trim((string) $this->request->getPost('footer_title')),
             'footer_description' => trim((string) $this->request->getPost('footer_description')),

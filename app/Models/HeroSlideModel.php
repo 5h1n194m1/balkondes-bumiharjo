@@ -16,7 +16,9 @@ class HeroSlideModel extends Model
         'subtitle',
         'button_text',
         'button_link',
+        'media_type',
         'image_path',
+        'video_path',
         'sort_order',
         'is_active',
     ];
